@@ -44,9 +44,9 @@ export default function ScrollCanvasEngine({
   useEffect(() => {
     setMounted(true);
     const update = () => {
-      // Faster response on mobile by shortening the required scroll distance
+      // Sweet spot for mobile: 300svh (not too slow like 400, not too fast like 200)
       const isMobile = window.innerWidth < 768;
-      setTrackHeightVh(isMobile ? 200 : 400);
+      setTrackHeightVh(isMobile ? 300 : 400);
 
       if (trackRef.current) {
         const rect = trackRef.current.getBoundingClientRect();
