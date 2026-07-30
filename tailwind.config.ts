@@ -23,6 +23,7 @@ const config: Config = {
       },
       fontFamily: {
         outfit: ["var(--font-outfit)", "sans-serif"],
+        cormorant: ["var(--font-cormorant)", "serif"],
       },
       backgroundImage: {
         "brand-gradient": "linear-gradient(135deg, #000000 0%, #111111 100%)",

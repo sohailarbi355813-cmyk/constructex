@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Outfit, Cormorant_Garant } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -7,6 +7,14 @@ const outfit = Outfit({
   variable: "--font-outfit",
   display: "swap",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+
+const cormorant = Cormorant_Garant({
+  subsets: ["latin"],
+  variable: "--font-cormorant",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -36,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={outfit.variable}>
+    <html lang="en" className={`${outfit.variable} ${cormorant.variable}`}>
       <body className={`${outfit.className} antialiased`}>{children}</body>
     </html>
   );
