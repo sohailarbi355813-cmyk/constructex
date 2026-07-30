@@ -5,6 +5,7 @@ import { projects } from "@/data/projects";
 
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import HeroStatsBar from "@/components/HeroStatsBar";
 import ProjectSwitcher from "@/components/ProjectSwitcher";
 import StatsBanner from "@/components/StatsBanner";
 import DetailsSection from "@/components/DetailsSection";
@@ -21,6 +22,7 @@ export default function Home() {
       <Navbar />
 
       <HeroSection />
+      <HeroStatsBar />
 
       {/* Project Switcher Tabs */}
       <ProjectSwitcher
