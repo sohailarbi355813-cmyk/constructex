@@ -67,7 +67,7 @@ export default function HeroSection() {
         >
           <motion.span
             {...fadeUp(0.1)}
-            className="text-3xl font-light italic text-white -ml-4 pl-1"
+            className="text-3xl font-semibold italic text-white -ml-4 pl-1"
             style={{ letterSpacing: "-0.01em", textShadow }}
           >
             Designing Space
@@ -75,7 +75,7 @@ export default function HeroSection() {
 
           <motion.span
             {...fadeUp(0.3)}
-            className="text-3xl font-light italic text-white ml-10"
+            className="text-3xl font-semibold italic text-white ml-10"
             style={{ letterSpacing: "-0.01em", textShadow }}
           >
             that Endures
@@ -91,7 +91,7 @@ export default function HeroSection() {
 
           <motion.span
             {...fadeUp(0.7)}
-            className="text-3xl font-light italic text-white ml-8"
+            className="text-3xl font-semibold italic text-white ml-8"
             style={{ letterSpacing: "-0.01em", textShadow }}
           >
             Inspires
@@ -103,7 +103,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-auto flex justify-center"
+          className="mt-5 flex justify-center"
         >
           {/* CTA button */}
           <button
