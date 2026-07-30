@@ -45,7 +45,7 @@ export default function HeroSection() {
             style={{ fontFamily: "var(--font-cormorant)" }}
           >
             <span
-              className="text-3xl md:text-5xl font-light italic text-white/90"
+              className="text-3xl md:text-5xl font-light italic text-white/90 -ml-6 md:-ml-14 pl-1"
               style={{ letterSpacing: "-0.01em" }}
             >
               Designing Space
