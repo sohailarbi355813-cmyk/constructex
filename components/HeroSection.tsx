@@ -58,7 +58,7 @@ export default function HeroSection() {
       {/* ══════════════════════════════════════
           MOBILE LAYOUT (block md:hidden)
       ══════════════════════════════════════ */}
-      <div className="block md:hidden relative z-10 flex flex-col h-full px-4 pb-8" style={{ paddingTop: "48%" }}>
+      <div className="block md:hidden relative z-10 flex flex-col h-full px-4 pb-8" style={{ paddingTop: "62%" }}>
 
         {/* Staggered headline */}
         <div
