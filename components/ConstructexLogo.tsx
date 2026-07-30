@@ -25,7 +25,7 @@ export default function ConstructexLogo({
         {/* Outer C arc */}
         <path
           d="M72 18 C72 18 38 10 20 35 C6 54 12 78 30 88 C48 98 68 92 78 82"
-          stroke="#686B6C"
+          stroke="#6B21A8"
           strokeWidth="7"
           strokeLinecap="round"
           fill="none"
@@ -33,20 +33,20 @@ export default function ConstructexLogo({
         {/* Inner C arc — the double wave */}
         <path
           d="M65 32 C65 32 44 26 33 44 C24 58 30 74 44 80 C54 84 64 80 70 72"
-          stroke="#9A9D9E"
+          stroke="#9B59D4"
           strokeWidth="5.5"
           strokeLinecap="round"
           fill="none"
         />
         {/* Subtle inner glow dot */}
-        <circle cx="50" cy="50" r="3" fill="#686B6C" opacity="0.5" />
+        <circle cx="50" cy="50" r="3" fill="#6B21A8" opacity="0.5" />
       </svg>
 
       {showText && (
         <div className="flex flex-col leading-none">
           <span
-            className="font-black tracking-[0.12em] text-white"
-            style={{ fontSize: size * 0.45 }}
+            className="font-black tracking-[0.12em]"
+            style={{ fontSize: size * 0.45, color: "#6B21A8" }}
           >
             CONSTRUCTEX
           </span>
@@ -54,11 +54,11 @@ export default function ConstructexLogo({
             className="flex items-center gap-1 mt-[2px]"
             style={{ fontSize: size * 0.22 }}
           >
-            <span className="w-4 h-px bg-[#686B6C] inline-block" />
-            <span className="tracking-[0.2em] text-[#9A9D9E] font-medium uppercase">
+            <span className="w-4 h-px inline-block" style={{ backgroundColor: "#6B21A8" }} />
+            <span className="tracking-[0.2em] font-medium uppercase" style={{ color: "#9B59D4" }}>
               Drywall • Framing
             </span>
-            <span className="w-4 h-px bg-[#686B6C] inline-block" />
+            <span className="w-4 h-px inline-block" style={{ backgroundColor: "#6B21A8" }} />
           </div>
         </div>
       )}

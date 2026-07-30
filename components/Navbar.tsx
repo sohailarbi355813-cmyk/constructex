@@ -40,7 +40,7 @@ export default function Navbar() {
                 className="text-sm font-medium tracking-widest uppercase text-white/60 hover:text-white transition-colors duration-300 relative group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#686B6C] group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#6B21A8] group-hover:w-full transition-all duration-300" />
               </a>
             </li>
           ))}
@@ -51,8 +51,8 @@ export default function Navbar() {
             href="#contact"
             className="relative px-6 py-2.5 rounded-full text-sm font-semibold tracking-widest uppercase overflow-hidden group"
           >
-            <span className="absolute inset-0 bg-[#3A3D3E] rounded-full" />
-            <span className="absolute inset-0 bg-[#686B6C] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="absolute inset-0 bg-[#6B21A8] rounded-full" />
+            <span className="absolute inset-0 bg-[#8B31D8] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative text-white">Get Estimate</span>
           </a>
         </div>
@@ -97,7 +97,7 @@ export default function Navbar() {
               <a
                 href="#contact"
                 onClick={() => setMenuOpen(false)}
-                className="block text-center px-6 py-3 rounded-full bg-[#3A3D3E] text-white text-sm font-semibold tracking-widest uppercase"
+                className="block text-center px-6 py-3 rounded-full bg-[#6B21A8] text-white text-sm font-semibold tracking-widest uppercase"
               >
                 Get Estimate
               </a>
