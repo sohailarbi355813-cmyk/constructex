@@ -13,7 +13,7 @@ const textShadow = "0 2px 16px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.9)";
 export default function HeroSection() {
   return (
     <section
-      className="relative h-screen flex flex-col overflow-hidden"
+      className="relative h-[72vh] md:h-screen flex flex-col overflow-hidden"
       id="hero"
     >
       {/* Background Image — Desktop */}
@@ -103,7 +103,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-5 flex justify-center"
+          className="mt-10 flex justify-center"
         >
           {/* CTA button */}
           <button
