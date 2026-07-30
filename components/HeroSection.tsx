@@ -46,8 +46,18 @@ export default function HeroSection() {
       {/* Top gradient */}
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0B0E11] to-transparent pointer-events-none" />
 
-      {/* Bottom gradient */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0B0E11] to-transparent pointer-events-none" />
+      {/* Bottom gradient — desktop subtle */}
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0B0E11] to-transparent pointer-events-none hidden md:block" />
+
+      {/* Mobile-only: deep gradient for readability over bright grass area */}
+      <div
+        className="absolute inset-x-0 bottom-0 pointer-events-none block md:hidden"
+        style={{
+          height: "70%",
+          background:
+            "linear-gradient(to top, #0B0E11 0%, rgba(11,14,17,0.93) 25%, rgba(11,14,17,0.75) 45%, rgba(11,14,17,0.35) 65%, transparent 100%)",
+        }}
+      />
 
 
 
@@ -63,8 +73,8 @@ export default function HeroSection() {
             {/* Line 1 — full left */}
             <motion.span
               {...fadeUp(0.1)}
-              className="text-3xl md:text-5xl font-light italic text-white/90 -ml-6 md:-ml-14 pl-1"
-              style={{ letterSpacing: "-0.01em" }}
+              className="text-3xl md:text-5xl font-light italic text-white -ml-6 md:-ml-14 pl-1"
+              style={{ letterSpacing: "-0.01em", textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.8)" }}
             >
               Designing Space
             </motion.span>
@@ -72,8 +82,8 @@ export default function HeroSection() {
             {/* Line 2 — pushed more right */}
             <motion.span
               {...fadeUp(0.3)}
-              className="text-3xl md:text-5xl font-light italic text-white/90 ml-12 md:ml-24"
-              style={{ letterSpacing: "-0.01em" }}
+              className="text-3xl md:text-5xl font-light italic text-white ml-12 md:ml-24"
+              style={{ letterSpacing: "-0.01em", textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.8)" }}
             >
               that Endures
             </motion.span>
@@ -94,8 +104,8 @@ export default function HeroSection() {
             {/* Line 4 — Inspires */}
             <motion.span
               {...fadeUp(0.7)}
-              className="text-3xl md:text-5xl font-light italic text-white/90 ml-8 md:ml-14"
-              style={{ letterSpacing: "-0.01em" }}
+              className="text-3xl md:text-5xl font-light italic text-white ml-8 md:ml-14"
+              style={{ letterSpacing: "-0.01em", textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.8)" }}
             >
               Inspires
             </motion.span>
