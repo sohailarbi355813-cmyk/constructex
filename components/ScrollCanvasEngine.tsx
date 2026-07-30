@@ -84,11 +84,15 @@ export default function ScrollCanvasEngine({
         {project.frameCount > 0 ? (
           <canvas
             ref={canvasRef as React.RefObject<HTMLCanvasElement>}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full"
             style={{
               width: "100%",
               height: "100%",
+              objectFit: "cover",
               pointerEvents: "none",
+              willChange: "contents",
+              transform: "translateZ(0)",
+              imageRendering: "auto",
             }}
           />
         ) : (
