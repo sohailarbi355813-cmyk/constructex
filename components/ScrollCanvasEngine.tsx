@@ -19,6 +19,7 @@ export default function ScrollCanvasEngine({
   const trackRef = useRef<HTMLDivElement>(null);
   const [trackStart, setTrackStart] = useState(0);
   const [trackEnd, setTrackEnd] = useState(4000);
+  const [trackHeightVh, setTrackHeightVh] = useState(400);
   const [mounted, setMounted] = useState(false);
 
   const { scrollYProgress } = useScroll({
@@ -43,6 +44,10 @@ export default function ScrollCanvasEngine({
   useEffect(() => {
     setMounted(true);
     const update = () => {
+      // Faster response on mobile by shortening the required scroll distance
+      const isMobile = window.innerWidth < 768;
+      setTrackHeightVh(isMobile ? 200 : 400);
+
       if (trackRef.current) {
         const rect = trackRef.current.getBoundingClientRect();
         const start = window.scrollY + rect.top;
@@ -74,7 +79,7 @@ export default function ScrollCanvasEngine({
     <div
       ref={trackRef}
       className="relative"
-      style={{ height: `${TRACK_HEIGHT_VH}vh` }}
+      style={{ height: `${trackHeightVh}svh` }}
       id={`showcase-${project.id}`}
     >
       {/* Sticky canvas window */}

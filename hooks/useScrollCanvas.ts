@@ -122,12 +122,6 @@ export function useScrollCanvas({
 
     const handleResize = () => {
       requestAnimationFrame(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-        // Use client width/height to get exact DOM dimensions
-        const rect = canvas.getBoundingClientRect();
-        canvas.width = rect.width * window.devicePixelRatio;
-        canvas.height = rect.height * window.devicePixelRatio;
         drawFrame(currentFrameRef.current);
       });
     };
