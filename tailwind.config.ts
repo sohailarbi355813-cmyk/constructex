@@ -10,23 +10,24 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          purple: "#7B22CE",
-          "purple-light": "#9B4DEB",
-          "purple-glow": "#C084FC",
-          "purple-dim": "#4A1480",
-          obsidian: "#0B0E11",
-          "slate-dark": "#0F172A",
-          "slate-mid": "#1E293B",
-          "slate-surface": "#1A1F2E",
+          black: "#000000",
+          grey: "#686B6C",
+          white: "#FFFFFF",
+          "grey-light": "#9A9D9E",
+          "grey-dark": "#3A3D3E",
+          obsidian: "#0A0A0A",
+          "slate-dark": "#111111",
+          "slate-mid": "#1A1A1A",
+          "slate-surface": "#141414",
         },
       },
       fontFamily: {
         outfit: ["var(--font-outfit)", "sans-serif"],
       },
       backgroundImage: {
-        "purple-gradient": "linear-gradient(135deg, #0B0E11 0%, #150830 100%)",
+        "brand-gradient": "linear-gradient(135deg, #000000 0%, #111111 100%)",
         "card-glow":
-          "radial-gradient(ellipse at center, rgba(123,34,206,0.15) 0%, transparent 70%)",
+          "radial-gradient(ellipse at center, rgba(104,107,108,0.15) 0%, transparent 70%)",
       },
       animation: {
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",

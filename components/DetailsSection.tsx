@@ -1,7 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
 import { Project } from "@/data/projects";
 
 interface DetailsSectionProps {
@@ -9,12 +7,8 @@ interface DetailsSectionProps {
 }
 
 export default function DetailsSection({ project }: DetailsSectionProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
     <section
-      ref={ref}
       className="relative py-28 px-6 overflow-hidden"
       id="showcase"
     >
@@ -26,11 +20,7 @@ export default function DetailsSection({ project }: DetailsSectionProps) {
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Text column */}
-        <motion.div
-          initial={{ opacity: 0, x: -60 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div>
           <div className="flex items-center gap-3 mb-6">
             <span
               className="w-10 h-px"
@@ -55,11 +45,8 @@ export default function DetailsSection({ project }: DetailsSectionProps) {
           {/* Feature checklist */}
           <ul className="space-y-4">
             {project.features.map((feature, i) => (
-              <motion.li
+              <li
                 key={i}
-                initial={{ opacity: 0, x: -20 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + i * 0.12 }}
                 className="flex items-center gap-4"
               >
                 <span
@@ -83,16 +70,13 @@ export default function DetailsSection({ project }: DetailsSectionProps) {
                 <span className="text-sm text-white/70 font-medium tracking-wide">
                   {feature}
                 </span>
-              </motion.li>
+              </li>
             ))}
           </ul>
-        </motion.div>
+        </div>
 
         {/* Visual card column */}
-        <motion.div
-          initial={{ opacity: 0, x: 60 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        <div
           className="relative"
         >
           {/* Main visual card */}
@@ -139,9 +123,7 @@ export default function DetailsSection({ project }: DetailsSectionProps) {
           </div>
 
           {/* Floating accent card */}
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          <div
             className="absolute -top-6 -right-6 glass-card rounded-2xl p-4 border"
             style={{ borderColor: `${project.themeColor}40` }}
           >
@@ -157,8 +139,8 @@ export default function DetailsSection({ project }: DetailsSectionProps) {
             <div className="text-xs text-white/40 mt-0.5">
               {project.stats[1]?.label}
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

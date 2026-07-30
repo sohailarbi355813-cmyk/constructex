@@ -1,7 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
 import { Project } from "@/data/projects";
 
 interface BookingSectionProps {
@@ -9,12 +7,8 @@ interface BookingSectionProps {
 }
 
 export default function BookingSection({ project }: BookingSectionProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-
   return (
     <section
-      ref={ref}
       className="relative py-28 px-6 overflow-hidden"
       id="contact"
     >
@@ -31,10 +25,7 @@ export default function BookingSection({ project }: BookingSectionProps) {
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        <div
           className="glass-card rounded-3xl overflow-hidden"
           style={{ border: `1px solid ${project.themeColor}30` }}
         >
@@ -69,11 +60,8 @@ export default function BookingSection({ project }: BookingSectionProps) {
               {/* Highlights */}
               <ul className="space-y-4 mb-10">
                 {project.bookingSection.highlights.map((item, i) => (
-                  <motion.li
+                  <li
                     key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}
                     className="flex items-center gap-3 text-sm text-white/70"
                   >
                     <span
@@ -83,7 +71,7 @@ export default function BookingSection({ project }: BookingSectionProps) {
                       ✓
                     </span>
                     {item}
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
 
@@ -162,7 +150,7 @@ export default function BookingSection({ project }: BookingSectionProps) {
                   </label>
                   <select
                     id="project-type"
-                    className="w-full px-4 py-3 rounded-xl glass-card border border-white/10 bg-[#0B0E11] text-white/70 text-sm focus:outline-none focus:border-purple-500/50 transition-colors"
+                    className="w-full px-4 py-3 rounded-xl glass-card border border-white/10 focus:border-[#686B6C] focus:outline-none focus:ring-1 focus:ring-[#686B6C] text-white placeholder-white/30 transition-colors"
                   >
                     <option value="">Select a service</option>
                     <option value="framing">Structural Framing</option>
@@ -187,21 +175,19 @@ export default function BookingSection({ project }: BookingSectionProps) {
                   />
                 </div>
 
-                <motion.button
+                <button
                   id="submit-estimate"
                   type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full py-4 rounded-xl text-white font-bold tracking-widest uppercase text-sm relative overflow-hidden group"
+                  className="w-full py-4 rounded-xl text-white font-bold tracking-widest uppercase text-sm relative overflow-hidden group hover:scale-[1.02] active:scale-[0.98] transition-transform"
                   style={{ backgroundColor: project.themeColor }}
                 >
                   <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/10" />
                   <span className="relative">Send Estimate Request →</span>
-                </motion.button>
+                </button>
               </form>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

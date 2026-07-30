@@ -25,7 +25,7 @@ export default function ConstructexLogo({
         {/* Outer C arc */}
         <path
           d="M72 18 C72 18 38 10 20 35 C6 54 12 78 30 88 C48 98 68 92 78 82"
-          stroke="#7B22CE"
+          stroke="#686B6C"
           strokeWidth="7"
           strokeLinecap="round"
           fill="none"
@@ -33,13 +33,13 @@ export default function ConstructexLogo({
         {/* Inner C arc — the double wave */}
         <path
           d="M65 32 C65 32 44 26 33 44 C24 58 30 74 44 80 C54 84 64 80 70 72"
-          stroke="#C084FC"
+          stroke="#9A9D9E"
           strokeWidth="5.5"
           strokeLinecap="round"
           fill="none"
         />
         {/* Subtle inner glow dot */}
-        <circle cx="50" cy="50" r="3" fill="#9B4DEB" opacity="0.5" />
+        <circle cx="50" cy="50" r="3" fill="#686B6C" opacity="0.5" />
       </svg>
 
       {showText && (
@@ -54,11 +54,11 @@ export default function ConstructexLogo({
             className="flex items-center gap-1 mt-[2px]"
             style={{ fontSize: size * 0.22 }}
           >
-            <span className="w-4 h-px bg-purple-500 inline-block" />
-            <span className="tracking-[0.2em] text-purple-400 font-medium uppercase">
+            <span className="w-4 h-px bg-[#686B6C] inline-block" />
+            <span className="tracking-[0.2em] text-[#9A9D9E] font-medium uppercase">
               Drywall • Framing
             </span>
-            <span className="w-4 h-px bg-purple-500 inline-block" />
+            <span className="w-4 h-px bg-[#686B6C] inline-block" />
           </div>
         </div>
       )}

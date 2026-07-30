@@ -52,8 +52,8 @@ export const projects: Project[] = [
       "Heavy-Gauge Steel — Kiln-Dried Timber — Acoustic Dampened Drywall",
     folderPath: "/images/framing-showcase",
     frameCount: 250,
-    themeColor: "#7B22CE",
-    gradient: "linear-gradient(135deg, #0B0E11 0%, #150830 100%)",
+    themeColor: "#686B6C",
+    gradient: "linear-gradient(135deg, #000000 0%, #111111 100%)",
     features: [
       "Heavy-Gauge Structural Steel",
       "Precision Wood Stud Alignment",
@@ -116,8 +116,8 @@ export const projects: Project[] = [
       "Open-Concept Conversions — Custom Ceiling Coffers — Minimalist Trim",
     folderPath: "/images/renovation-showcase",
     frameCount: 0,
-    themeColor: "#4A1480",
-    gradient: "linear-gradient(135deg, #0F172A 0%, #1A0A40 100%)",
+    themeColor: "#686B6C",
+    gradient: "linear-gradient(135deg, #000000 0%, #111111 100%)",
     features: [
       "Load-Bearing Beam Integration",
       "Recessed Architectural Lighting Cavities",

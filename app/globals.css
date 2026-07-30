@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --bg-gradient: linear-gradient(135deg, #0B0E11 0%, #150830 100%);
-  --purple-primary: #7B22CE;
-  --purple-glow: #9B4DEB;
+  --bg-gradient: linear-gradient(135deg, #000000 0%, #111111 100%);
+  --brand-primary: #686B6C;
+  --brand-glow: #9A9D9E;
 }
 
 * {
@@ -36,15 +36,14 @@ html {
 
 /* Custom text selection */
 ::selection {
-  background-color: rgba(123, 34, 206, 0.35);
+  background-color: rgba(104, 107, 108, 0.4);
   color: #ffffff;
 }
 
 ::-moz-selection {
-  background-color: rgba(123, 34, 206, 0.35);
+  background-color: rgba(104, 107, 108, 0.4);
   color: #ffffff;
 }
-
 
 /* Smooth gradient transitions on theme color changes */
 .theme-transition {
@@ -69,18 +68,18 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Purple glow effect */
-.purple-glow {
-  box-shadow: 0 0 40px rgba(123, 34, 206, 0.3), 0 0 80px rgba(123, 34, 206, 0.1);
+/* Brand glow effect */
+.brand-glow {
+  box-shadow: 0 0 40px rgba(104, 107, 108, 0.25), 0 0 80px rgba(104, 107, 108, 0.08);
 }
 
 .text-glow {
-  text-shadow: 0 0 30px rgba(155, 77, 235, 0.6);
+  text-shadow: 0 0 30px rgba(154, 157, 158, 0.5);
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #C084FC 0%, #7B22CE 50%, #9B4DEB 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #686B6C 50%, #9A9D9E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

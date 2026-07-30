@@ -1,7 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
 import { Project } from "@/data/projects";
 
 interface CraftsmanshipSectionProps {
@@ -11,12 +9,8 @@ interface CraftsmanshipSectionProps {
 export default function CraftsmanshipSection({
   project,
 }: CraftsmanshipSectionProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-
   return (
     <section
-      ref={ref}
       className="relative py-28 px-6 overflow-hidden"
       id="craftsmanship"
     >
@@ -28,10 +22,7 @@ export default function CraftsmanshipSection({
 
       <div className="max-w-7xl mx-auto">
         {/* Section heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        <div
           className="text-center mb-20"
         >
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -56,7 +47,7 @@ export default function CraftsmanshipSection({
           <p className="text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
             {project.craftsmanshipSection.description}
           </p>
-        </motion.div>
+        </div>
 
         {/* Bento grid of craft points */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -122,16 +113,9 @@ export default function CraftsmanshipSection({
               description: "Skim-coat plaster over drywall compound, delivering an invisible, paint-ready surface.",
             },
           ].map((item, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.6,
-                delay: i * 0.1,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="group glass-card rounded-2xl p-7 hover:border-purple-500/30 transition-all duration-500 cursor-default"
+              className="group glass-card rounded-2xl p-7 hover:border-[#686B6C]/50 transition-colors duration-300 cursor-default"
               style={{
                 borderColor: i === 0 ? `${project.themeColor}30` : undefined,
               }}
@@ -148,7 +132,7 @@ export default function CraftsmanshipSection({
               <p className="text-sm text-white/50 leading-relaxed">
                 {item.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

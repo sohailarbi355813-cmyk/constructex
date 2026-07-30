@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import ConstructexLogo from "./ConstructexLogo";
 
 const navLinks = [
@@ -22,10 +21,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-black/60 backdrop-blur-xl border-b border-white/5 py-3"
@@ -44,7 +40,7 @@ export default function Navbar() {
                 className="text-sm font-medium tracking-widest uppercase text-white/60 hover:text-white transition-colors duration-300 relative group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-purple-500 group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#686B6C] group-hover:w-full transition-all duration-300" />
               </a>
             </li>
           ))}
@@ -55,8 +51,8 @@ export default function Navbar() {
             href="#contact"
             className="relative px-6 py-2.5 rounded-full text-sm font-semibold tracking-widest uppercase overflow-hidden group"
           >
-            <span className="absolute inset-0 bg-purple-700 rounded-full" />
-            <span className="absolute inset-0 bg-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="absolute inset-0 bg-[#3A3D3E] rounded-full" />
+            <span className="absolute inset-0 bg-[#686B6C] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative text-white">Get Estimate</span>
           </a>
         </div>
@@ -68,56 +64,47 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <motion.span
-            animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-            className="w-6 h-0.5 bg-white block"
+          <span
+            className={`w-6 h-0.5 bg-white block transition-transform ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
           />
-          <motion.span
-            animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="w-6 h-0.5 bg-white block"
+          <span
+            className={`w-6 h-0.5 bg-white block transition-opacity ${menuOpen ? "opacity-0" : ""}`}
           />
-          <motion.span
-            animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-            className="w-6 h-0.5 bg-white block"
+          <span
+            className={`w-6 h-0.5 bg-white block transition-transform ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
           />
         </button>
       </div>
 
       {/* Mobile menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden overflow-hidden bg-black/90 backdrop-blur-xl border-t border-white/5"
-          >
-            <ul className="flex flex-col px-6 py-6 gap-5">
-              {navLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="text-base font-medium tracking-widest uppercase text-white/70 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-              <li>
+      {menuOpen && (
+        <div
+          className="md:hidden overflow-hidden bg-black/90 backdrop-blur-xl border-t border-white/5"
+        >
+          <ul className="flex flex-col px-6 py-6 gap-5">
+            {navLinks.map((link) => (
+              <li key={link.label}>
                 <a
-                  href="#contact"
+                  href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block text-center px-6 py-3 rounded-full bg-purple-700 text-white text-sm font-semibold tracking-widest uppercase"
+                  className="text-base font-medium tracking-widest uppercase text-white/70 hover:text-white transition-colors"
                 >
-                  Get Estimate
+                  {link.label}
                 </a>
               </li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+            ))}
+            <li>
+              <a
+                href="#contact"
+                onClick={() => setMenuOpen(false)}
+                className="block text-center px-6 py-3 rounded-full bg-[#3A3D3E] text-white text-sm font-semibold tracking-widest uppercase"
+              >
+                Get Estimate
+              </a>
+            </li>
+          </ul>
+        </div>
+      )}
+    </nav>
   );
 }

@@ -1,13 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { projects } from "@/data/projects";
 
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ProjectSwitcher from "@/components/ProjectSwitcher";
-import ScrollCanvasEngine from "@/components/ScrollCanvasEngine";
 import StatsBanner from "@/components/StatsBanner";
 import DetailsSection from "@/components/DetailsSection";
 import CraftsmanshipSection from "@/components/CraftsmanshipSection";
@@ -22,44 +20,21 @@ export default function Home() {
     <main className="relative min-h-screen">
       <Navbar />
 
-      {/* Primary Scroll Canvas Hero — Replaces static Hero */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeProject.id}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <ScrollCanvasEngine
-            project={activeProject}
-            sectionIndex={activeIndex}
-          />
-        </motion.div>
-      </AnimatePresence>
+      <HeroSection />
 
-      {/* Project Switcher Tabs - Moved below the Hero Scroll */}
+      {/* Project Switcher Tabs */}
       <ProjectSwitcher
         projects={projects}
         activeIndex={activeIndex}
         onSwitch={setActiveIndex}
       />
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={`${activeProject.id}-content`}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.6 }}
-        >
-          <StatsBanner project={activeProject} />
-          <DetailsSection project={activeProject} />
-          <CraftsmanshipSection project={activeProject} />
-        </motion.div>
-      </AnimatePresence>
+      <div key={`${activeProject.id}-content`}>
+        <StatsBanner project={activeProject} />
+        <DetailsSection project={activeProject} />
+        <CraftsmanshipSection project={activeProject} />
+      </div>
 
-      {/* Booking section — always visible */}
       <BookingSection project={activeProject} />
 
       <Footer />
