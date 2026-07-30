@@ -6,13 +6,23 @@ export default function HeroSection() {
       className="relative h-screen flex flex-col items-center justify-center overflow-hidden"
       id="hero"
     >
-      {/* Background Image — covers the full viewport */}
-      <div 
-        className="absolute inset-0 bg-no-repeat"
+      {/* Background Image — Desktop (landscape) */}
+      <div
+        className="absolute inset-0 bg-no-repeat hidden md:block"
         style={{
           backgroundImage: "url('/landing-bg.png')",
           backgroundSize: "cover",
           backgroundPosition: "center 30%",
+        }}
+      />
+
+      {/* Background Image — Mobile (9:16 portrait, fills phone perfectly) */}
+      <div
+        className="absolute inset-0 bg-no-repeat block md:hidden"
+        style={{
+          backgroundImage: "url('/landing-bg-mobile.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center top",
         }}
       />
 
