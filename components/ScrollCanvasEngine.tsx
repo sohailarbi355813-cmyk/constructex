@@ -27,8 +27,8 @@ export default function ScrollCanvasEngine({
     offset: ["start start", "end end"],
   });
 
-  const textOpacity1 = useTransform(scrollYProgress, [0, 0.1, 0.22, 0.28], [0, 1, 1, 0]);
-  const textY1 = useTransform(scrollYProgress, [0, 0.15], [40, 0]);
+  const textOpacity1 = useTransform(scrollYProgress, [0, 0.18, 0.25], [1, 1, 0]);
+  const textY1 = useTransform(scrollYProgress, [0, 0.25], [0, -40]);
 
   const textOpacity2 = useTransform(scrollYProgress, [0.25, 0.35, 0.47, 0.53], [0, 1, 1, 0]);
   const textY2 = useTransform(scrollYProgress, [0.25, 0.4], [40, 0]);
@@ -44,10 +44,6 @@ export default function ScrollCanvasEngine({
   useEffect(() => {
     setMounted(true);
     const update = () => {
-      // Sweet spot for mobile: 300svh (not too slow like 400, not too fast like 200)
-      const isMobile = window.innerWidth < 768;
-      setTrackHeightVh(isMobile ? 300 : 400);
-
       if (trackRef.current) {
         const rect = trackRef.current.getBoundingClientRect();
         const start = window.scrollY + rect.top;
@@ -79,7 +75,7 @@ export default function ScrollCanvasEngine({
     <div
       ref={trackRef}
       className="relative"
-      style={{ height: `${trackHeightVh}svh` }}
+      style={{ height: `${TRACK_HEIGHT_VH}vh` }}
       id={`showcase-${project.id}`}
     >
       {/* Sticky canvas window */}
