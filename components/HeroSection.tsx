@@ -30,9 +30,9 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-no-repeat block md:hidden"
         style={{
-          backgroundImage: "url('/images/bg-architect.jpg')",
+          backgroundImage: "url('/landing-bg-mobile.png')",
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center center",
         }}
       />
 
@@ -120,11 +120,11 @@ export default function HeroSection() {
 
           {/* LEFT — Staggered headline */}
           <div
-            className="flex flex-col leading-[0.85] select-none font-heading pt-20"
+            className="flex flex-col leading-[1.1] select-none font-heading pt-20"
           >
             <motion.span
               {...fadeUp(0.1)}
-              className="text-5xl md:text-[5rem] lg:text-[6.5rem] font-black text-white -ml-2 pl-1 tracking-tighter"
+              className="text-5xl md:text-6xl lg:text-7xl font-black text-white -ml-2 pl-1 tracking-tight"
               style={{ textShadow }}
             >
               BEST METAL
@@ -132,15 +132,15 @@ export default function HeroSection() {
 
             <motion.span
               {...fadeUp(0.3)}
-              className="text-[7rem] md:text-[8rem] font-bold italic font-cormorant ml-12"
-              style={{ letterSpacing: "-0.03em", lineHeight: 0.85, color: "#7C3AED", textShadow }}
+              className="text-[6rem] md:text-7xl lg:text-8xl font-bold italic font-cormorant ml-12"
+              style={{ letterSpacing: "-0.03em", lineHeight: 1, color: "#7C3AED", textShadow }}
             >
               &
             </motion.span>
 
             <motion.span
               {...fadeUp(0.5)}
-              className="text-6xl md:text-[5rem] lg:text-[6.5rem] font-black text-white ml-16 tracking-tighter"
+              className="text-5xl md:text-6xl lg:text-7xl font-black text-white ml-16 tracking-tight"
               style={{ textShadow }}
             >
               WOODEN FRAMING
@@ -148,7 +148,7 @@ export default function HeroSection() {
 
             <motion.span
               {...fadeUp(0.7)}
-              className="text-3xl md:text-[3rem] font-bold text-white/80 ml-24 tracking-tight mt-6"
+              className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white/90 ml-24 tracking-normal mt-4"
               style={{ textShadow }}
             >
               service across Canada
