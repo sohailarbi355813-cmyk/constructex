@@ -117,7 +117,7 @@ export default function ScrollCanvasEngine({
                     <rect x="40" y="16" width="4" height="32" rx="1" fill={project.themeColor} opacity="0.4"/>
                   </svg>
                 </div>
-                <p className="text-white/30 text-sm tracking-widest uppercase">
+                <p className="text-luxury-muted text-sm tracking-widest uppercase">
                   Renovation Sequence Coming Soon
                 </p>
               </div>
@@ -127,9 +127,9 @@ export default function ScrollCanvasEngine({
 
         {/* Dark vignette overlays */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#000000] to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#000000] to-transparent" />
-          <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#000000]/80 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-luxury-primary to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-luxury-primary to-transparent" />
+          <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-luxury-primary/80 to-transparent" />
         </div>
 
         {/* Progress bar */}
@@ -162,16 +162,16 @@ export default function ScrollCanvasEngine({
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="w-8 h-px bg-white/20" />
-                <span className="text-xs tracking-[0.2em] uppercase text-white/40 font-medium">
+                <span className="text-xs tracking-[0.2em] uppercase text-luxury-muted font-medium">
                   {project.name}
                 </span>
               </div>
 
-              <h2 className="text-4xl md:text-6xl font-black text-white leading-tight mb-3">
+              <h2 className="text-4xl md:text-6xl font-black text-luxury-white leading-tight mb-3">
                 {sec.title}
               </h2>
               {sec.subtitle && (
-                <p className="text-base md:text-lg text-white/55 font-light max-w-lg leading-relaxed">
+                <p className="text-base md:text-lg text-luxury-paragraph font-light max-w-lg leading-relaxed">
                   {sec.subtitle}
                 </p>
               )}
@@ -187,7 +187,7 @@ export default function ScrollCanvasEngine({
                       >
                         {stat.val}
                       </span>
-                      <span className="text-xs tracking-widest uppercase text-white/40 mt-1">
+                      <span className="text-xs tracking-widest uppercase text-luxury-muted mt-1">
                         {stat.label}
                       </span>
                     </div>

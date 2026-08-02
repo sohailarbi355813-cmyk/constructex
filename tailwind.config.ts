@@ -9,20 +9,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          black: "#000000",
-          grey: "#686B6C",
+        luxury: {
+          primary: "#171A23",
+          secondary: "#2B3142",
+          accent: "#7C3AED",
+          hover: "#6D28D9",
           white: "#FFFFFF",
-          "grey-light": "#9A9D9E",
-          "grey-dark": "#3A3D3E",
-          obsidian: "#0A0A0A",
-          "slate-dark": "#111111",
-          "slate-mid": "#1A1A1A",
-          "slate-surface": "#141414",
+          paragraph: "#D1D5DB",
+          muted: "#9CA3AF",
+          border: "#3A4154",
+          success: "#22C55E",
+          warning: "#F59E0B",
+          error: "#EF4444",
         },
       },
       fontFamily: {
-        outfit: ["var(--font-outfit)", "sans-serif"],
+        sans: ["var(--font-inter)", "sans-serif"],
+        heading: ["var(--font-syne)", "sans-serif"],
         cormorant: ["var(--font-cormorant)", "serif"],
       },
       backgroundImage: {

@@ -8,13 +8,28 @@ interface ProjectSwitcherProps {
   onSwitch: (index: number) => void;
 }
 
+import Image from "next/image";
+import { useRef } from "react";
+import { motion, useScroll } from "framer-motion";
+
 export default function ProjectSwitcher({
   projects,
   activeIndex,
   onSwitch,
 }: ProjectSwitcherProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "center center"],
+  });
+
   return (
-    <section className="relative py-16 px-6 overflow-hidden" id="services">
+    <motion.section 
+      ref={sectionRef}
+      className="relative py-16 px-6 overflow-hidden" 
+      id="services"
+      style={{ "--scroll-progress": scrollYProgress } as any}
+    >
       {/* Background */}
       <div className="absolute inset-0 opacity-40 pointer-events-none"
         style={{
@@ -25,68 +40,91 @@ export default function ProjectSwitcher({
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-5">
-            <span className="w-10 h-px bg-[#686B6C]" />
-            <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#686B6C]">
+            <span className="w-10 h-px bg-luxury-muted" />
+            <span className="text-xs font-bold tracking-[0.3em] uppercase text-luxury-muted">
               Our Services
             </span>
-            <span className="w-10 h-px bg-[#686B6C]" />
+            <span className="w-10 h-px bg-luxury-muted" />
           </div>
-          <h2 className="text-3xl md:text-5xl font-black text-white">
+          <h2 className="text-3xl md:text-5xl font-black text-luxury-white font-heading">
             Select a Service
           </h2>
         </div>
 
-        {/* Tab switcher */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        {/* Cards Grid (Bento Box Layout) */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
           {projects.map((project, i) => (
             <button
               key={project.id}
               id={`service-tab-${project.id}`}
               onClick={() => onSwitch(i)}
-              className="relative px-8 py-5 rounded-2xl text-left overflow-hidden transition-all duration-500 group"
+              className={`group relative aspect-square ${i === 0 ? "md:col-span-2 md:aspect-[2/1]" : "md:col-span-1 md:aspect-square"} rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl text-left stack-card-${i}`}
               style={{
-                background:
-                  i === activeIndex
-                    ? `linear-gradient(135deg, ${project.themeColor}30, ${project.themeColor}10)`
-                    : "rgba(255,255,255,0.02)",
                 border: `1px solid ${
                   i === activeIndex
-                    ? project.themeColor + "60"
+                    ? project.themeColor + "90"
                     : "rgba(255,255,255,0.08)"
                 }`,
+                boxShadow: i === activeIndex ? `0 20px 40px -10px ${project.themeColor}40` : "none"
               }}
             >
-              {/* Active indicator */}
+              {/* Background Image */}
+              <Image 
+                src={`/images/services/${project.id}.png`}
+                alt={project.name}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-50 group-hover:opacity-90"
+              />
+              
+              {/* Gradient Overlay */}
+              <div 
+                className="absolute inset-0 transition-opacity duration-500"
+                style={{
+                  background: `linear-gradient(to top, #171A23 0%, transparent 100%)`,
+                  opacity: i === activeIndex ? 0.9 : 0.7
+                }}
+              />
+
+              {/* Active Indicator Glow */}
               {i === activeIndex && (
                 <div
-                  className="absolute inset-0 rounded-2xl"
+                  className="absolute inset-0"
                   style={{
-                    background: `radial-gradient(ellipse at top left, ${project.themeColor}20 0%, transparent 60%)`,
+                    background: `radial-gradient(circle at top right, ${project.themeColor}40 0%, transparent 60%)`,
                   }}
                 />
               )}
 
-              <div className="relative z-10">
-                <div className="flex items-center gap-2 mb-1">
+              {/* Content */}
+              <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                <div className="flex items-center gap-2 mb-2">
                   {i === activeIndex && (
                     <span
-                      className="w-2 h-2 rounded-full"
-                      style={{ backgroundColor: project.themeColor }}
+                      className="w-2 h-2 rounded-full shadow-[0_0_10px_currentColor]"
+                      style={{ backgroundColor: project.themeColor, color: project.themeColor }}
                     />
                   )}
                   <span
-                    className="text-xs font-bold tracking-widest uppercase"
+                    className="text-xs font-bold tracking-widest uppercase transition-colors duration-300"
                     style={{
-                      color: i === activeIndex ? project.themeColor : "rgba(255,255,255,0.3)",
+                      color: i === activeIndex ? project.themeColor : "rgba(255,255,255,0.5)",
                     }}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <div className="text-base font-bold text-white mb-1">
+                <div className="text-2xl font-bold font-heading text-luxury-white mb-2 group-hover:text-[#7C3AED] transition-colors duration-300">
                   {project.name}
                 </div>
-                <div className="text-sm text-white/40">{project.subName}</div>
+                <div className="text-sm text-luxury-muted mb-3 group-hover:text-luxury-white transition-colors duration-300">
+                  {project.subName}
+                </div>
+                <div 
+                  className={`text-xs uppercase tracking-widest font-bold transition-all duration-300 ${i === activeIndex ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0"}`}
+                  style={{ color: project.themeColor }}
+                >
+                  View Details &rarr;
+                </div>
               </div>
             </button>
           ))}
@@ -99,11 +137,11 @@ export default function ProjectSwitcher({
             borderColor: `${projects[activeIndex].themeColor}25`,
           }}
         >
-          <p className="text-sm text-white/50 leading-relaxed">
+          <p className="text-sm text-luxury-paragraph leading-relaxed">
             {projects[activeIndex].description}
           </p>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

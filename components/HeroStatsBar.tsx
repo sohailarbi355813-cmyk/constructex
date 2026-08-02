@@ -41,10 +41,7 @@ const stats = [
 export default function HeroStatsBar() {
   return (
     <div
-      className="relative w-full py-5 px-4 md:px-14"
-      style={{
-        background: "linear-gradient(180deg, #0B0E11 0%, #1A0B2E 40%, #220D3B 100%)",
-      }}
+      className="relative w-full py-5 px-4 md:px-14 bg-gradient-to-b from-luxury-primary via-luxury-secondary/50 to-luxury-secondary"
     >
       {/* Subtle top glow line */}
       <div
@@ -72,8 +69,8 @@ export default function HeroStatsBar() {
               border: "1px solid rgba(139,92,246,0.25)",
             }}
           >
-            <span className="text-violet-400 flex-shrink-0">{stat.icon}</span>
-            <span className="text-white/85 text-sm font-medium tracking-wide whitespace-nowrap font-outfit">
+            <span className="text-luxury-accent flex-shrink-0">{stat.icon}</span>
+            <span className="text-luxury-white text-sm font-medium tracking-wide whitespace-nowrap font-heading">
               {stat.label}
             </span>
           </motion.div>

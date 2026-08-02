@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 
 const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 32 },
+  initial: { opacity: 0, y: 50 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] },
+  transition: { type: "spring", stiffness: 120, damping: 20, mass: 1.2, delay },
 });
 
 const textShadow = "0 2px 16px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.9)";
@@ -20,7 +20,7 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-no-repeat hidden md:block"
         style={{
-          backgroundImage: "url('/landing-bg.png')",
+          backgroundImage: "url('/images/bg-hero-desktop.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center 30%",
         }}
@@ -30,30 +30,18 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-no-repeat block md:hidden"
         style={{
-          backgroundImage: "url('/landing-bg-mobile.png')",
-          backgroundSize: "100% auto",
-          backgroundPosition: "center top",
+          backgroundImage: "url('/images/bg-architect.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 pointer-events-none bg-black/20" />
+      {/* 60/30/10 Color Rule Overlay: 
+          30% Secondary for readability, 60% White (text), 10% Purple (accents) */}
+      <div className="absolute inset-0 pointer-events-none bg-luxury-secondary/40" />
 
-      {/* Top gradient */}
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0B0E11] to-transparent pointer-events-none" />
-
-      {/* Desktop bottom gradient */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0B0E11] to-transparent pointer-events-none hidden md:block" />
-
-      {/* Mobile deep gradient — dark reading zone from 45% down */}
-      <div
-        className="absolute inset-x-0 bottom-0 pointer-events-none block md:hidden"
-        style={{
-          height: "62%",
-          background:
-            "linear-gradient(to top, #0B0E11 0%, rgba(11,14,17,0.95) 20%, rgba(11,14,17,0.82) 42%, rgba(11,14,17,0.4) 62%, transparent 100%)",
-        }}
-      />
+      {/* Top gradient for navbar blending */}
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-luxury-secondary/80 to-transparent pointer-events-none" />
 
       {/* ══════════════════════════════════════
           MOBILE LAYOUT (block md:hidden)
@@ -62,39 +50,38 @@ export default function HeroSection() {
 
         {/* Staggered headline */}
         <div
-          className="flex flex-col leading-none select-none"
-          style={{ fontFamily: "var(--font-cormorant)" }}
+          className="flex flex-col leading-none select-none font-heading"
         >
           <motion.span
             {...fadeUp(0.1)}
-            className="text-3xl font-semibold italic text-white -ml-4 pl-1"
+            className="text-3xl font-bold text-white -ml-4 pl-1"
             style={{ letterSpacing: "-0.01em", textShadow }}
           >
-            Designing Space
+            Best metal
           </motion.span>
 
           <motion.span
             {...fadeUp(0.3)}
-            className="text-3xl font-semibold italic text-white ml-10"
-            style={{ letterSpacing: "-0.01em", textShadow }}
-          >
-            that Endures
-          </motion.span>
-
-          <motion.span
-            {...fadeUp(0.5)}
-            className="text-5xl font-bold italic ml-20"
+            className="text-5xl font-bold italic font-cormorant ml-6"
             style={{ letterSpacing: "-0.03em", lineHeight: 1, color: "#7C3AED", textShadow }}
           >
             &
           </motion.span>
 
           <motion.span
-            {...fadeUp(0.7)}
-            className="text-3xl font-semibold italic text-white ml-8"
+            {...fadeUp(0.5)}
+            className="text-3xl font-bold text-white ml-12"
             style={{ letterSpacing: "-0.01em", textShadow }}
           >
-            Inspires
+            wooden framing
+          </motion.span>
+
+          <motion.span
+            {...fadeUp(0.7)}
+            className="text-3xl font-bold text-white ml-20"
+            style={{ letterSpacing: "-0.01em", textShadow }}
+          >
+            service across the Canada
           </motion.span>
         </div>
 
@@ -107,20 +94,18 @@ export default function HeroSection() {
         >
           {/* CTA button */}
           <button
-            className="group flex items-center gap-0 rounded-full overflow-hidden font-outfit font-semibold text-sm transition-all duration-300 active:scale-[0.97]"
+            className="group flex items-center gap-0 rounded-full overflow-hidden font-heading font-semibold text-sm transition-all duration-300 active:scale-[0.97] bg-[#7C3AED] hover:bg-[#6D28D9] shadow-[0_8px_32px_rgba(124,58,237,0.5)]"
             style={{
-              background: "#6B21A8",
               paddingLeft: "1.25rem",
-              boxShadow: "0 8px 32px rgba(107,33,168,0.5)",
             }}
           >
-            <span className="text-white pr-3 py-3 tracking-wide">Get a Quote</span>
+            <span className="text-luxury-white pr-3 py-3 tracking-wide">Get a Quote</span>
             <span
-              className="flex items-center justify-center rounded-full my-1.5 mr-1.5"
-              style={{ width: "2.2rem", height: "2.2rem", background: "#fff", flexShrink: 0 }}
+              className="flex items-center justify-center rounded-full my-1.5 mr-1.5 bg-luxury-white shrink-0"
+              style={{ width: "2.2rem", height: "2.2rem" }}
             >
-              <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none">
-                <path d="M3 13L13 3M13 3H6M13 3V10" stroke="#6B21A8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              <svg className="w-3.5 h-3.5 stroke-luxury-accent" viewBox="0 0 16 16" fill="none">
+                <path d="M3 13L13 3M13 3H6M13 3V10" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </span>
           </button>
@@ -135,39 +120,38 @@ export default function HeroSection() {
 
           {/* LEFT — Staggered headline */}
           <div
-            className="flex flex-col leading-none select-none"
-            style={{ fontFamily: "var(--font-cormorant)" }}
+            className="flex flex-col leading-[0.85] select-none font-heading pt-20"
           >
             <motion.span
               {...fadeUp(0.1)}
-              className="text-5xl font-light italic text-white -ml-14 pl-1"
-              style={{ letterSpacing: "-0.01em", textShadow }}
+              className="text-5xl md:text-[5rem] lg:text-[6.5rem] font-black text-white -ml-2 pl-1 tracking-tighter"
+              style={{ textShadow }}
             >
-              Designing Space
+              BEST METAL
             </motion.span>
 
             <motion.span
               {...fadeUp(0.3)}
-              className="text-5xl font-light italic text-white ml-24"
-              style={{ letterSpacing: "-0.01em", textShadow }}
-            >
-              that Endures
-            </motion.span>
-
-            <motion.span
-              {...fadeUp(0.5)}
-              className="text-7xl font-bold italic ml-36"
-              style={{ letterSpacing: "-0.03em", lineHeight: 1, color: "#7C3AED", textShadow }}
+              className="text-[7rem] md:text-[8rem] font-bold italic font-cormorant ml-12"
+              style={{ letterSpacing: "-0.03em", lineHeight: 0.85, color: "#7C3AED", textShadow }}
             >
               &
             </motion.span>
 
             <motion.span
-              {...fadeUp(0.7)}
-              className="text-5xl font-light italic text-white ml-14"
-              style={{ letterSpacing: "-0.01em", textShadow }}
+              {...fadeUp(0.5)}
+              className="text-6xl md:text-[5rem] lg:text-[6.5rem] font-black text-white ml-16 tracking-tighter"
+              style={{ textShadow }}
             >
-              Inspires
+              WOODEN FRAMING
+            </motion.span>
+
+            <motion.span
+              {...fadeUp(0.7)}
+              className="text-3xl md:text-[3rem] font-bold text-white/80 ml-24 tracking-tight mt-6"
+              style={{ textShadow }}
+            >
+              service across Canada
             </motion.span>
           </div>
 
@@ -178,23 +162,21 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
             <button
-              className="group flex items-center gap-0 rounded-full overflow-hidden font-outfit font-semibold text-base transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
+              className="group flex items-center gap-0 rounded-full overflow-hidden font-heading font-semibold text-base transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] bg-[#7C3AED] hover:bg-[#6D28D9] shadow-[0_8px_32px_rgba(124,58,237,0.45)]"
               style={{
-                background: "#6B21A8",
                 paddingLeft: "1.5rem",
-                boxShadow: "0 8px 32px rgba(107,33,168,0.45)",
               }}
             >
-              <span className="text-white pr-4 py-3.5 tracking-wide">Get a Quote</span>
+              <span className="text-luxury-white pr-4 py-3.5 tracking-wide">Get a Quote</span>
               <span
-                className="flex items-center justify-center rounded-full my-1.5 mr-1.5"
-                style={{ width: "2.4rem", height: "2.4rem", background: "#fff", flexShrink: 0 }}
+                className="flex items-center justify-center rounded-full my-1.5 mr-1.5 bg-luxury-white shrink-0"
+                style={{ width: "2.4rem", height: "2.4rem" }}
               >
                 <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 stroke-luxury-accent"
                   viewBox="0 0 16 16" fill="none"
                 >
-                  <path d="M3 13L13 3M13 3H6M13 3V10" stroke="#6B21A8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M3 13L13 3M13 3H6M13 3V10" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
             </button>

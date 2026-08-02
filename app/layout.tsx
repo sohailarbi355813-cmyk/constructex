@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
-import { Outfit, Playfair_Display } from "next/font/google";
+import { Syne, Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
+const syne = Syne({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-syne",
   display: "swap",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 const playfair = Playfair_Display({
@@ -44,8 +50,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${playfair.variable}`}>
-      <body className={`${outfit.className} antialiased`}>{children}</body>
+    <html lang="en" className={`${syne.variable} ${inter.variable} ${playfair.variable}`}>
+      <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
 }

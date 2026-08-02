@@ -24,7 +24,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-black/60 backdrop-blur-xl border-b border-white/5 py-3"
+          ? "bg-luxury-primary/80 backdrop-blur-xl border-b border-luxury-border/50 py-3"
           : "bg-transparent py-5"
       }`}
     >
@@ -37,10 +37,10 @@ export default function Navbar() {
             <li key={link.label}>
               <a
                 href={link.href}
-                className="text-sm font-medium tracking-widest uppercase text-white/60 hover:text-white transition-colors duration-300 relative group"
+                className="text-sm font-medium tracking-widest uppercase text-luxury-muted hover:text-luxury-white transition-colors duration-300 relative group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#6B21A8] group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#7C3AED] group-hover:w-full transition-all duration-300" />
               </a>
             </li>
           ))}
@@ -51,9 +51,9 @@ export default function Navbar() {
             href="#contact"
             className="relative px-6 py-2.5 rounded-full text-sm font-semibold tracking-widest uppercase overflow-hidden group"
           >
-            <span className="absolute inset-0 bg-[#6B21A8] rounded-full" />
-            <span className="absolute inset-0 bg-[#8B31D8] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="relative text-white">Get Estimate</span>
+            <span className="absolute inset-0 bg-[#7C3AED] rounded-full" />
+            <span className="absolute inset-0 bg-[#6D28D9] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="relative text-luxury-white">Get Estimate</span>
           </a>
         </div>
 
@@ -65,13 +65,13 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`w-6 h-0.5 bg-white block transition-transform ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
+            className={`w-6 h-0.5 bg-luxury-white block transition-transform ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
           />
           <span
-            className={`w-6 h-0.5 bg-white block transition-opacity ${menuOpen ? "opacity-0" : ""}`}
+            className={`w-6 h-0.5 bg-luxury-white block transition-opacity ${menuOpen ? "opacity-0" : ""}`}
           />
           <span
-            className={`w-6 h-0.5 bg-white block transition-transform ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+            className={`w-6 h-0.5 bg-luxury-white block transition-transform ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
           />
         </button>
       </div>
@@ -79,7 +79,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <div
-          className="md:hidden overflow-hidden bg-black/90 backdrop-blur-xl border-t border-white/5"
+          className="md:hidden overflow-hidden bg-luxury-primary/95 backdrop-blur-xl border-t border-luxury-border/50"
         >
           <ul className="flex flex-col px-6 py-6 gap-5">
             {navLinks.map((link) => (
@@ -87,20 +87,19 @@ export default function Navbar() {
                 <a
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="text-base font-medium tracking-widest uppercase text-white/70 hover:text-white transition-colors"
+                  className="text-base font-medium tracking-widest uppercase text-luxury-muted hover:text-luxury-white transition-colors"
                 >
                   {link.label}
                 </a>
               </li>
             ))}
             <li>
-              <a
-                href="#contact"
+              <button
                 onClick={() => setMenuOpen(false)}
-                className="block text-center px-6 py-3 rounded-full bg-[#6B21A8] text-white text-sm font-semibold tracking-widest uppercase"
+                className="block w-full text-center px-6 py-3 rounded-full bg-[#7C3AED] hover:bg-[#6D28D9] text-luxury-white text-sm font-semibold tracking-widest uppercase transition-colors"
               >
-                Get Estimate
-              </a>
+                Get a Quote
+              </button>
             </li>
           </ul>
         </div>

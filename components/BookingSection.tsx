@@ -53,7 +53,7 @@ export default function BookingSection({ project }: BookingSectionProps) {
                   {project.bookingSection.price}
                 </span>
               </div>
-              <p className="text-sm text-white/40 tracking-wide mb-10">
+              <p className="text-sm text-luxury-muted tracking-wide mb-10">
                 {project.bookingSection.unit}
               </p>
 
@@ -62,7 +62,7 @@ export default function BookingSection({ project }: BookingSectionProps) {
                 {project.bookingSection.highlights.map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-center gap-3 text-sm text-white/70"
+                    className="flex items-center gap-3 text-sm text-luxury-paragraph"
                   >
                     <span
                       className="flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center text-[10px]"
@@ -76,20 +76,20 @@ export default function BookingSection({ project }: BookingSectionProps) {
               </ul>
 
               {/* Promise + warranty */}
-              <div className="space-y-4 pt-6 border-t border-white/8">
+              <div className="space-y-4 pt-6 border-t border-luxury-border/50">
                 <div>
-                  <div className="text-xs tracking-widest uppercase text-white/30 mb-1">
+                  <div className="text-xs tracking-widest uppercase text-luxury-muted/70 mb-1">
                     Delivery Promise
                   </div>
-                  <p className="text-xs text-white/55 leading-relaxed">
+                  <p className="text-xs text-luxury-muted leading-relaxed">
                     {project.bookingSection.deliveryPromise}
                   </p>
                 </div>
                 <div>
-                  <div className="text-xs tracking-widest uppercase text-white/30 mb-1">
+                  <div className="text-xs tracking-widest uppercase text-luxury-muted/70 mb-1">
                     Warranty
                   </div>
-                  <p className="text-xs text-white/55 leading-relaxed">
+                  <p className="text-xs text-luxury-muted leading-relaxed">
                     {project.bookingSection.warrantyPolicy}
                   </p>
                 </div>
@@ -101,7 +101,7 @@ export default function BookingSection({ project }: BookingSectionProps) {
               className="p-10 md:p-14 border-t lg:border-t-0 lg:border-l"
               style={{ borderColor: `${project.themeColor}20` }}
             >
-              <h3 className="text-2xl font-black text-white mb-8">
+              <h3 className="text-2xl font-black text-luxury-white mb-8">
                 Request Your<br />
                 <span style={{ color: project.themeColor }}>Free Estimate</span>
               </h3>
@@ -114,7 +114,7 @@ export default function BookingSection({ project }: BookingSectionProps) {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-xs tracking-widest uppercase text-white/40 mb-2"
+                    className="block text-xs tracking-widest uppercase text-luxury-muted mb-2"
                   >
                     Full Name
                   </label>
@@ -122,14 +122,14 @@ export default function BookingSection({ project }: BookingSectionProps) {
                     id="name"
                     type="text"
                     placeholder="John Doe"
-                    className="w-full px-4 py-3 rounded-xl glass-card border border-white/10 bg-transparent text-white placeholder-white/25 text-sm focus:outline-none focus:border-purple-500/50 transition-colors"
+                    className="w-full px-4 py-3 rounded-xl glass-card border border-luxury-border/50 bg-transparent text-luxury-white placeholder-luxury-muted/50 text-sm focus:outline-none focus:border-luxury-accent/50 transition-colors"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-xs tracking-widest uppercase text-white/40 mb-2"
+                    className="block text-xs tracking-widest uppercase text-luxury-muted mb-2"
                   >
                     Email Address
                   </label>
@@ -137,20 +137,20 @@ export default function BookingSection({ project }: BookingSectionProps) {
                     id="email"
                     type="email"
                     placeholder="you@example.com"
-                    className="w-full px-4 py-3 rounded-xl glass-card border border-white/10 bg-transparent text-white placeholder-white/25 text-sm focus:outline-none focus:border-purple-500/50 transition-colors"
+                    className="w-full px-4 py-3 rounded-xl glass-card border border-luxury-border/50 bg-transparent text-luxury-white placeholder-luxury-muted/50 text-sm focus:outline-none focus:border-luxury-accent/50 transition-colors"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="project-type"
-                    className="block text-xs tracking-widest uppercase text-white/40 mb-2"
+                    className="block text-xs tracking-widest uppercase text-luxury-muted mb-2"
                   >
                     Project Type
                   </label>
                   <select
                     id="project-type"
-                    className="w-full px-4 py-3 rounded-xl glass-card border border-white/10 focus:border-[#686B6C] focus:outline-none focus:ring-1 focus:ring-[#686B6C] text-white placeholder-white/30 transition-colors"
+                    className="w-full px-4 py-3 rounded-xl glass-card border border-luxury-border/50 focus:border-luxury-accent focus:outline-none focus:ring-1 focus:ring-luxury-accent text-luxury-white placeholder-luxury-muted/50 transition-colors"
                   >
                     <option value="">Select a service</option>
                     <option value="framing">Structural Framing</option>
@@ -163,7 +163,7 @@ export default function BookingSection({ project }: BookingSectionProps) {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-xs tracking-widest uppercase text-white/40 mb-2"
+                    className="block text-xs tracking-widest uppercase text-luxury-muted mb-2"
                   >
                     Project Details
                   </label>
@@ -171,15 +171,15 @@ export default function BookingSection({ project }: BookingSectionProps) {
                     id="message"
                     rows={4}
                     placeholder="Describe your project scope, location, and timeline..."
-                    className="w-full px-4 py-3 rounded-xl glass-card border border-white/10 bg-transparent text-white placeholder-white/25 text-sm focus:outline-none focus:border-purple-500/50 transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl glass-card border border-luxury-border/50 bg-transparent text-luxury-white placeholder-luxury-muted/50 text-sm focus:outline-none focus:border-luxury-accent/50 transition-colors resize-none"
                   />
                 </div>
 
                 <button
                   id="submit-estimate"
                   type="submit"
-                  className="w-full py-4 rounded-xl text-white font-bold tracking-widest uppercase text-sm relative overflow-hidden group hover:scale-[1.02] active:scale-[0.98] transition-transform"
-                  style={{ backgroundColor: project.themeColor }}
+                  className="w-full py-4 rounded-xl text-luxury-white font-bold tracking-widest uppercase text-sm relative overflow-hidden group hover:scale-[1.02] active:scale-[0.98] transition-transform"
+                  style={{ backgroundColor: "#7C3AED" }}
                 >
                   <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/10" />
                   <span className="relative">Send Estimate Request →</span>

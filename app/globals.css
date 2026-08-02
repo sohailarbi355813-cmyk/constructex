@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --bg-gradient: linear-gradient(135deg, #000000 0%, #111111 100%);
-  --brand-primary: #686B6C;
-  --brand-glow: #9A9D9E;
+  --bg-gradient: linear-gradient(135deg, #171A23 0%, #2B3142 100%);
+  --brand-primary: #7C3AED;
+  --brand-glow: #6D28D9;
 }
 
 * {
@@ -24,6 +24,10 @@ body {
   overflow-x: hidden;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-space), sans-serif;
+}
+
 /* Hide native scrollbar — preserve scroll functionality */
 ::-webkit-scrollbar {
   display: none;
@@ -36,12 +40,12 @@ html {
 
 /* Custom text selection */
 ::selection {
-  background-color: rgba(104, 107, 108, 0.4);
+  background-color: rgba(124, 58, 237, 0.4); /* #7C3AED */
   color: #ffffff;
 }
 
 ::-moz-selection {
-  background-color: rgba(104, 107, 108, 0.4);
+  background-color: rgba(124, 58, 237, 0.4);
   color: #ffffff;
 }
 
@@ -70,7 +74,7 @@ html {
 
 /* Brand glow effect */
 .brand-glow {
-  box-shadow: 0 0 40px rgba(104, 107, 108, 0.25), 0 0 80px rgba(104, 107, 108, 0.08);
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.25), 0 0 80px rgba(124, 58, 237, 0.08);
 }
 
 .text-glow {
@@ -79,8 +83,44 @@ html {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #FFFFFF 0%, #686B6C 50%, #9A9D9E 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #D1D5DB 50%, #9CA3AF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Stack Cards Scroll Animation */
+.stack-card-0, .stack-card-1, .stack-card-2 {
+  --p: var(--scroll-progress, 1);
+  --inv: calc(1 - var(--p));
+}
+
+@media (min-width: 768px) {
+  .stack-card-0 {
+    transform: translateX(calc(var(--inv) * 105%)) rotate(calc(var(--inv) * -8deg));
+    z-index: 3;
+  }
+  .stack-card-1 {
+    transform: translateY(calc(var(--inv) * 10%)) rotate(calc(var(--inv) * 4deg));
+    z-index: 2;
+  }
+  .stack-card-2 {
+    transform: translateX(calc(var(--inv) * -105%)) rotate(calc(var(--inv) * 12deg));
+    z-index: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .stack-card-0 {
+    transform: translateY(calc(var(--inv) * 105%)) rotate(calc(var(--inv) * -5deg));
+    z-index: 3;
+  }
+  .stack-card-1 {
+    transform: rotate(calc(var(--inv) * 2deg));
+    z-index: 2;
+  }
+  .stack-card-2 {
+    transform: translateY(calc(var(--inv) * -105%)) rotate(calc(var(--inv) * 8deg));
+    z-index: 1;
+  }
 }

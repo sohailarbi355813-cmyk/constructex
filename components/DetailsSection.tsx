@@ -1,6 +1,8 @@
 "use client";
 
 import { Project } from "@/data/projects";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface DetailsSectionProps {
   project: Project;
@@ -20,7 +22,12 @@ export default function DetailsSection({ project }: DetailsSectionProps) {
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Text column */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <div className="flex items-center gap-3 mb-6">
             <span
               className="w-10 h-px"
@@ -34,7 +41,7 @@ export default function DetailsSection({ project }: DetailsSectionProps) {
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-6">
+          <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-6 font-heading">
             {project.detailsSection.title}
           </h2>
 
@@ -45,8 +52,12 @@ export default function DetailsSection({ project }: DetailsSectionProps) {
           {/* Feature checklist */}
           <ul className="space-y-4">
             {project.features.map((feature, i) => (
-              <li
+              <motion.li
                 key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 + 0.3 }}
                 className="flex items-center gap-4"
               >
                 <span
@@ -70,13 +81,17 @@ export default function DetailsSection({ project }: DetailsSectionProps) {
                 <span className="text-sm text-white/70 font-medium tracking-wide">
                   {feature}
                 </span>
-              </li>
+              </motion.li>
             ))}
           </ul>
-        </div>
+        </motion.div>
 
         {/* Visual card column */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
           className="relative"
         >
           {/* Main visual card */}
@@ -84,34 +99,20 @@ export default function DetailsSection({ project }: DetailsSectionProps) {
             className="relative rounded-3xl overflow-hidden aspect-[4/5] glass-card"
             style={{ border: `1px solid ${project.themeColor}30` }}
           >
-            {/* Architectural illustration */}
+            {/* Generated Image */}
             <div
-              className="absolute inset-0 flex items-center justify-center"
-              style={{ background: `linear-gradient(135deg, ${project.themeColor}10 0%, #0B0E11 100%)` }}
+              className="absolute inset-0 flex items-center justify-center bg-luxury-primary"
             >
-              {/* Schematic SVG illustration */}
-              <svg
-                viewBox="0 0 300 400"
-                className="w-full h-full opacity-40"
-                fill="none"
-              >
-                {/* Horizontal beams */}
-                {[60, 120, 180, 240, 300, 360].map((y, i) => (
-                  <line key={i} x1="30" y1={y} x2="270" y2={y} stroke={project.themeColor} strokeWidth="1.5" opacity="0.6"/>
-                ))}
-                {/* Vertical studs */}
-                {[60, 100, 140, 180, 220, 260].map((x, i) => (
-                  <line key={i} x1={x} y1="40" x2={x} y2="380" stroke={project.themeColor} strokeWidth="1" opacity="0.4"/>
-                ))}
-                {/* Corner brackets */}
-                <path d="M30 40 L30 80 L70 80" stroke={project.themeColor} strokeWidth="2" strokeLinecap="round"/>
-                <path d="M270 40 L270 80 L230 80" stroke={project.themeColor} strokeWidth="2" strokeLinecap="round"/>
-                <path d="M30 380 L30 340 L70 340" stroke={project.themeColor} strokeWidth="2" strokeLinecap="round"/>
-                <path d="M270 380 L270 340 L230 340" stroke={project.themeColor} strokeWidth="2" strokeLinecap="round"/>
-                {/* Center glow */}
-                <circle cx="150" cy="200" r="30" stroke={project.themeColor} strokeWidth="1" opacity="0.5"/>
-                <circle cx="150" cy="200" r="8" fill={project.themeColor} opacity="0.6"/>
-              </svg>
+              <Image 
+                src={`/images/details/${project.id}.png`}
+                alt={project.detailsSection.imageAlt}
+                fill
+                className="object-cover opacity-80"
+              />
+              <div 
+                className="absolute inset-0"
+                style={{ background: `linear-gradient(135deg, ${project.themeColor}10 0%, #0B0E1190 100%)` }}
+              />
             </div>
 
             {/* Image alt overlay */}
@@ -123,8 +124,12 @@ export default function DetailsSection({ project }: DetailsSectionProps) {
           </div>
 
           {/* Floating accent card */}
-          <div
-            className="absolute -top-6 -right-6 glass-card rounded-2xl p-4 border"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="absolute -top-6 -right-6 glass-card rounded-2xl p-4 border shadow-2xl"
             style={{ borderColor: `${project.themeColor}40` }}
           >
             <div className="text-xs tracking-widest uppercase text-white/40 mb-1">
@@ -139,8 +144,8 @@ export default function DetailsSection({ project }: DetailsSectionProps) {
             <div className="text-xs text-white/40 mt-0.5">
               {project.stats[1]?.label}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

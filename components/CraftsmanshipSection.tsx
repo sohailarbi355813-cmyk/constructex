@@ -1,6 +1,7 @@
 "use client";
 
 import { Project } from "@/data/projects";
+import { motion } from "framer-motion";
 
 interface CraftsmanshipSectionProps {
   project: Project;
@@ -22,7 +23,11 @@ export default function CraftsmanshipSection({
 
       <div className="max-w-7xl mx-auto">
         {/* Section heading */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -47,10 +52,10 @@ export default function CraftsmanshipSection({
           <p className="text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
             {project.craftsmanshipSection.description}
           </p>
-        </div>
+        </motion.div>
 
         {/* Bento grid of craft points */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             {
               icon: (
@@ -60,7 +65,8 @@ export default function CraftsmanshipSection({
                 </svg>
               ),
               title: "Precision Alignment",
-              description: "Laser-verified stud placement with sub-millimeter tolerances on every job site.",
+              description: "Laser-verified stud placement with sub-millimeter tolerances on every job site. Our framing sets the absolute true line for everything that follows.",
+              spanClass: "lg:col-span-2 lg:row-span-2",
             },
             {
               icon: (
@@ -71,6 +77,7 @@ export default function CraftsmanshipSection({
               ),
               title: "Structural Integrity",
               description: "Every steel and timber assembly engineered for zero-flex durability across decades.",
+              spanClass: "lg:col-span-2",
             },
             {
               icon: (
@@ -80,7 +87,8 @@ export default function CraftsmanshipSection({
                 </svg>
               ),
               title: "On-Time Delivery",
-              description: "Strict schedule adherence with daily progress reporting and milestone accountability.",
+              description: "Strict schedule adherence with daily milestone accountability.",
+              spanClass: "lg:col-span-1",
             },
             {
               icon: (
@@ -90,7 +98,8 @@ export default function CraftsmanshipSection({
                 </svg>
               ),
               title: "Licensed & Insured",
-              description: "Fully licensed engineers, comprehensive site liability coverage, and bonded craftsmanship warranty.",
+              description: "Comprehensive site liability coverage and warranty.",
+              spanClass: "lg:col-span-1",
             },
             {
               icon: (
@@ -101,6 +110,7 @@ export default function CraftsmanshipSection({
               ),
               title: "Acoustic Engineering",
               description: "Sound-dampening insulation and thermal breaks engineered into every partition wall.",
+              spanClass: "lg:col-span-2",
             },
             {
               icon: (
@@ -111,28 +121,41 @@ export default function CraftsmanshipSection({
               ),
               title: "Level-5 Finish",
               description: "Skim-coat plaster over drywall compound, delivering an invisible, paint-ready surface.",
+              spanClass: "lg:col-span-2",
             },
           ].map((item, i) => (
-            <div
+            <motion.div
               key={i}
-              className="group glass-card rounded-2xl p-7 hover:border-[#686B6C]/50 transition-colors duration-300 cursor-default"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ type: "spring", stiffness: 100, damping: 20, delay: i * 0.1 }}
+              className={`group relative glass-card rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 cursor-default overflow-hidden border border-white/5 hover:border-white/20 flex flex-col justify-end ${item.spanClass}`}
               style={{
-                borderColor: i === 0 ? `${project.themeColor}30` : undefined,
+                boxShadow: "0 10px 30px -15px rgba(0,0,0,0.5)",
               }}
             >
+              {/* Hover Glow Background */}
+              <div 
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                style={{ background: `radial-gradient(circle at top right, ${project.themeColor}15, transparent 70%)` }}
+              />
+
               <div
-                className="mb-5 text-white/30 group-hover:text-opacity-70 transition-colors duration-300"
-                style={{ color: `${project.themeColor}80` }}
+                className="mb-5 transition-colors duration-500"
+                style={{ color: `${project.themeColor}60` }}
               >
-                {item.icon}
+                <div className="transition-all duration-500 group-hover:scale-110" style={{ color: `${project.themeColor}` }}>
+                  {item.icon}
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">
+              <h3 className="text-lg font-bold font-heading text-white mb-2 group-hover:text-white transition-colors duration-300">
                 {item.title}
               </h3>
-              <p className="text-sm text-white/50 leading-relaxed">
+              <p className="text-sm text-white/50 leading-relaxed group-hover:text-white/80 transition-colors duration-300">
                 {item.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
