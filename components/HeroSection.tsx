@@ -32,13 +32,13 @@ export default function HeroSection() {
         >
           <motion.h1
             {...fadeUp(0.1)}
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-luxury-white tracking-tight leading-tight mb-2"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-luxury-white tracking-tight leading-tight mb-2"
           >
             Dry wall &
           </motion.h1>
           <motion.h1
             {...fadeUp(0.3)}
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-luxury-white tracking-tight leading-tight"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-luxury-white tracking-tight leading-tight"
           >
             general contractor
           </motion.h1>

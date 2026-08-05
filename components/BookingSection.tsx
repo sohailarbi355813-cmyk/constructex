@@ -15,9 +15,9 @@ export default function BookingSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-white/80 backdrop-blur-2xl rounded-[3rem] p-10 md:p-16 text-center border border-luxury-border shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)]"
+          className="bg-white/80 backdrop-blur-2xl rounded-[2rem] md:rounded-[3rem] p-6 sm:p-10 md:p-16 text-center border border-luxury-border shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)]"
         >
-          <h2 className="text-4xl md:text-6xl font-black text-luxury-white mb-6 font-heading">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-luxury-white mb-6 font-heading leading-tight">
             Ready to Build?
           </h2>
           <p className="text-lg text-luxury-paragraph max-w-2xl mx-auto mb-10">
