@@ -1,7 +1,7 @@
 "use client";
 
 import { Project } from "@/data/projects";
-import Image from "next/image";
+import ProjectShowcaseCanvas from "@/components/ui/ProjectShowcaseCanvas";
 import { motion } from "framer-motion";
 
 interface DetailsSectionProps {
@@ -99,20 +99,16 @@ export default function DetailsSection({ project }: DetailsSectionProps) {
             className="relative rounded-3xl overflow-hidden aspect-[4/5] glass-card transition-all duration-700 group-hover:shadow-[0_0_40px_rgba(255,255,255,0.05)]"
             style={{ border: `1px solid ${project.themeColor}30` }}
           >
-            {/* Generated Image with Parallax Scale */}
+            {/* 3D Showcase Canvas */}
             <motion.div
               className="absolute inset-0 flex items-center justify-center bg-luxury-primary"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <Image 
-                src={`/images/details/${project.id}.png`}
-                alt={project.detailsSection.imageAlt}
-                fill
-                className="object-cover opacity-70 transition-opacity duration-500 group-hover:opacity-90"
-              />
+              <ProjectShowcaseCanvas themeColor={project.themeColor} />
+              
               <div 
-                className="absolute inset-0"
+                className="absolute inset-0 pointer-events-none"
                 style={{ background: `linear-gradient(135deg, ${project.themeColor}10 0%, #0B0E1195 100%)` }}
               />
             </motion.div>

@@ -70,19 +70,21 @@ export default function ProjectSwitcher({
                 boxShadow: i === activeIndex ? `0 20px 40px -10px ${project.themeColor}40` : "none"
               }}
             >
-              {/* Background Image */}
-              <Image 
-                src={`/images/services/${project.id}.png`}
-                alt={project.name}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-50 group-hover:opacity-90"
+              {/* Dynamic Abstract Background */}
+              <div 
+                className="absolute inset-0 transition-opacity duration-700 opacity-30 group-hover:opacity-60"
+                style={{
+                  background: `radial-gradient(circle at 50% 50%, ${project.themeColor}80 0%, transparent 60%),
+                               repeating-linear-gradient(45deg, transparent, transparent 10px, ${project.themeColor}15 10px, ${project.themeColor}15 20px)`,
+                  backgroundSize: "200% 200%",
+                }}
               />
               
               {/* Gradient Overlay */}
               <div 
                 className="absolute inset-0 transition-opacity duration-500"
                 style={{
-                  background: `linear-gradient(to top, #171A23 0%, transparent 100%)`,
+                  background: `linear-gradient(to top, #0B0E11 0%, transparent 100%)`,
                   opacity: i === activeIndex ? 0.9 : 0.7
                 }}
               />

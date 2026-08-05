@@ -10,14 +10,14 @@ const config: Config = {
     extend: {
       colors: {
         luxury: {
-          primary: "#0B0E11",
-          secondary: "#151A24",
-          accent: "#38bdf8",
-          hover: "#0284c7",
-          white: "#FFFFFF",
-          paragraph: "#D1D5DB",
+          primary: "#F5F5F0",
+          secondary: "#FFFFFF",
+          accent: "#7C3AED",
+          hover: "#6D28D9",
+          white: "#000000", /* inverted for text where luxury-white is used */
+          paragraph: "#4B5563",
           muted: "#9CA3AF",
-          border: "#1E293B",
+          border: "#E5E7EB",
           success: "#22C55E",
           warning: "#F59E0B",
           error: "#EF4444",

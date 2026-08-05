@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --bg-gradient: linear-gradient(135deg, #0B0E11 0%, #151A24 100%);
-  --brand-primary: #38bdf8;
-  --brand-glow: rgba(56, 189, 248, 0.5);
+  --bg-gradient: linear-gradient(135deg, #F5F5F0 0%, #FFFFFF 100%);
+  --brand-primary: #7C3AED;
+  --brand-glow: rgba(124, 58, 237, 0.4);
 }
 
 * {
@@ -19,7 +19,7 @@ html {
 body {
   background: var(--bg-gradient);
   background-attachment: fixed;
-  color: #f8fafc;
+  color: #1C1917;
   min-height: 100vh;
   overflow-x: hidden;
 }
