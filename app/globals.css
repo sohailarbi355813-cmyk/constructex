@@ -28,16 +28,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-space), sans-serif;
 }
 
-/* Hide native scrollbar — preserve scroll functionality */
-::-webkit-scrollbar {
-  display: none;
-}
-
-html {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
 /* Custom text selection */
 ::selection {
   background-color: rgba(124, 58, 237, 0.4); /* #7C3AED */
