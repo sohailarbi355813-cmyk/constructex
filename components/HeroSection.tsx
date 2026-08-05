@@ -28,17 +28,17 @@ export default function HeroSection() {
 
       <div className="relative z-10 text-center px-6 mt-16">
         <motion.div
-          className="flex flex-col items-center select-none font-heading"
+          className="flex flex-col items-center select-none font-heading w-full"
         >
           <motion.h1
             {...fadeUp(0.1)}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-luxury-white tracking-tight leading-tight mb-2"
+            className="text-[12vw] sm:text-6xl md:text-7xl lg:text-8xl font-black text-luxury-white tracking-tighter leading-none mb-2 text-center break-words w-full"
           >
             Dry wall &
           </motion.h1>
           <motion.h1
             {...fadeUp(0.3)}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-luxury-white tracking-tight leading-tight"
+            className="text-[12vw] sm:text-6xl md:text-7xl lg:text-8xl font-black text-luxury-white tracking-tighter leading-none text-center break-words w-full"
           >
             general contractor
           </motion.h1>
