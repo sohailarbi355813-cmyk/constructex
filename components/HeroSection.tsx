@@ -26,7 +26,7 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 text-center px-6 mt-[-10vh]">
+      <div className="relative z-10 text-center px-6 mt-16">
         <motion.div
           className="flex flex-col items-center select-none font-heading"
         >

@@ -32,11 +32,8 @@ export default function Navbar() {
           }`}
         >
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <ConstructexLogo size={32} className="text-[#7C3AED]" />
-            <span className="text-xl font-bold font-heading tracking-widest text-[#7C3AED]">
-              CONSTRUCTEX
-            </span>
+          <div className="flex items-center">
+            <ConstructexLogo className="w-auto h-8 text-[#7C3AED]" />
           </div>
 
           {/* Desktop Nav */}

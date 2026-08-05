@@ -2,6 +2,9 @@
 
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import ServicesSection from "@/components/ServicesSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import BookingSection from "@/components/BookingSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -9,6 +12,9 @@ export default function Home() {
     <main className="relative min-h-screen">
       <Navbar />
       <HeroSection />
+      <ServicesSection />
+      <ProjectsSection />
+      <BookingSection />
       <Footer />
     </main>
   );

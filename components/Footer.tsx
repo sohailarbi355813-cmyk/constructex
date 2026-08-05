@@ -12,11 +12,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           {/* Brand Col */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-6">
-              <ConstructexLogo size={32} className="text-[#7C3AED]" />
-              <span className="text-xl font-bold font-heading tracking-widest text-[#7C3AED]">
-                CONSTRUCTEX
-              </span>
+            <div className="flex items-center mb-6">
+              <ConstructexLogo className="w-auto h-8 text-[#7C3AED]" />
             </div>
             <p className="text-sm text-luxury-paragraph leading-relaxed mb-8">
               Premium drywall, structural framing, and architectural renovation across Canada. Precision engineered.
