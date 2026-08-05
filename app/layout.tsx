@@ -45,7 +45,6 @@ export const metadata: Metadata = {
 };
 
 import SmoothScroll from "@/components/SmoothScroll";
-import FontTweakPanel from "@/components/FontTweakPanel";
 
 export default function RootLayout({
   children,
@@ -58,7 +57,6 @@ export default function RootLayout({
         <SmoothScroll>
           {children}
         </SmoothScroll>
-        <FontTweakPanel />
       </body>
     </html>
   );
