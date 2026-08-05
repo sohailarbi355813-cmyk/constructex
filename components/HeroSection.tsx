@@ -9,6 +9,7 @@ const fadeUp = (delay: number) => ({
 });
 
 const textShadow = "0 2px 16px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.9)";
+import HeroCanvas from "@/components/ui/HeroCanvas";
 
 export default function HeroSection() {
   return (
@@ -16,25 +17,7 @@ export default function HeroSection() {
       className="relative h-[72vh] md:h-screen flex flex-col overflow-hidden"
       id="hero"
     >
-      {/* Background Image — Desktop */}
-      <div
-        className="absolute inset-0 bg-no-repeat hidden md:block"
-        style={{
-          backgroundImage: "url('/images/bg-hero-desktop.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center 30%",
-        }}
-      />
-
-      {/* Background Image — Mobile */}
-      <div
-        className="absolute inset-0 bg-no-repeat block md:hidden"
-        style={{
-          backgroundImage: "url('/landing-bg-mobile.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
-        }}
-      />
+      <HeroCanvas />
 
       {/* 60/30/10 Color Rule Overlay: 
           30% Secondary for readability, 60% White (text), 10% Purple (accents) */}

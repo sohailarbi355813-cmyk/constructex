@@ -92,28 +92,30 @@ export default function DetailsSection({ project }: DetailsSectionProps) {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          className="relative"
+          className="relative group"
         >
           {/* Main visual card */}
           <div
-            className="relative rounded-3xl overflow-hidden aspect-[4/5] glass-card"
+            className="relative rounded-3xl overflow-hidden aspect-[4/5] glass-card transition-all duration-700 group-hover:shadow-[0_0_40px_rgba(255,255,255,0.05)]"
             style={{ border: `1px solid ${project.themeColor}30` }}
           >
-            {/* Generated Image */}
-            <div
+            {/* Generated Image with Parallax Scale */}
+            <motion.div
               className="absolute inset-0 flex items-center justify-center bg-luxury-primary"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <Image 
                 src={`/images/details/${project.id}.png`}
                 alt={project.detailsSection.imageAlt}
                 fill
-                className="object-cover opacity-80"
+                className="object-cover opacity-70 transition-opacity duration-500 group-hover:opacity-90"
               />
               <div 
                 className="absolute inset-0"
-                style={{ background: `linear-gradient(135deg, ${project.themeColor}10 0%, #0B0E1190 100%)` }}
+                style={{ background: `linear-gradient(135deg, ${project.themeColor}10 0%, #0B0E1195 100%)` }}
               />
-            </div>
+            </motion.div>
 
             {/* Image alt overlay */}
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">

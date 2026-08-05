@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --bg-gradient: linear-gradient(135deg, #171A23 0%, #2B3142 100%);
-  --brand-primary: #7C3AED;
-  --brand-glow: #6D28D9;
+  --bg-gradient: linear-gradient(135deg, #0B0E11 0%, #151A24 100%);
+  --brand-primary: #38bdf8;
+  --brand-glow: rgba(56, 189, 248, 0.5);
 }
 
 * {

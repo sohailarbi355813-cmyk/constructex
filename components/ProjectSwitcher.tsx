@@ -10,7 +10,7 @@ interface ProjectSwitcherProps {
 
 import Image from "next/image";
 import { useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, AnimatePresence } from "framer-motion";
 
 export default function ProjectSwitcher({
   projects,
@@ -54,11 +54,13 @@ export default function ProjectSwitcher({
         {/* Cards Grid (Bento Box Layout) */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
           {projects.map((project, i) => (
-            <button
+            <motion.button
               key={project.id}
               id={`service-tab-${project.id}`}
               onClick={() => onSwitch(i)}
-              className={`group relative aspect-square ${i === 0 ? "md:col-span-2 md:aspect-[2/1]" : "md:col-span-1 md:aspect-square"} rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl text-left stack-card-${i}`}
+              whileHover={{ scale: 1.03, y: -4 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className={`group relative aspect-square ${i === 0 ? "md:col-span-2 md:aspect-[2/1]" : "md:col-span-1 md:aspect-square"} rounded-3xl overflow-hidden transition-shadow duration-500 hover:shadow-2xl text-left stack-card-${i}`}
               style={{
                 border: `1px solid ${
                   i === activeIndex
@@ -99,7 +101,8 @@ export default function ProjectSwitcher({
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
                 <div className="flex items-center gap-2 mb-2">
                   {i === activeIndex && (
-                    <span
+                    <motion.span
+                      layoutId="activeTabIndicator"
                       className="w-2 h-2 rounded-full shadow-[0_0_10px_currentColor]"
                       style={{ backgroundColor: project.themeColor, color: project.themeColor }}
                     />
@@ -126,20 +129,30 @@ export default function ProjectSwitcher({
                   View Details &rarr;
                 </div>
               </div>
-            </button>
+            </motion.button>
           ))}
         </div>
 
         {/* Active project description banner */}
         <div
-          className="glass-card rounded-2xl px-8 py-6 text-center max-w-2xl mx-auto"
+          className="glass-card rounded-2xl px-8 py-6 text-center max-w-2xl mx-auto overflow-hidden relative"
           style={{
             borderColor: `${projects[activeIndex].themeColor}25`,
           }}
         >
-          <p className="text-sm text-luxury-paragraph leading-relaxed">
-            {projects[activeIndex].description}
-          </p>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4 }}
+            >
+              <p className="text-sm text-luxury-paragraph leading-relaxed">
+                {projects[activeIndex].description}
+              </p>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </motion.section>

@@ -44,6 +44,8 @@ export const metadata: Metadata = {
   },
 };
 
+import SmoothScroll from "@/components/SmoothScroll";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -51,7 +53,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${syne.variable} ${inter.variable} ${playfair.variable}`}>
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
+      </body>
     </html>
   );
 }
