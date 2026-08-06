@@ -211,7 +211,7 @@ export const projects: Project[] = [
       subtitle: "",
     },
     detailsSection: {
-      title: "Non-Invasive Remodeling",
+      title: "Remodeling",
       description:
         "Our light renovation process uses advanced containment and negative-air filtration to protect your home while we reframe interiors and install flawless drywall finishes.",
       imageAlt: "Luxury home interior renovation in progress",
