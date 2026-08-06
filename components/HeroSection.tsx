@@ -8,16 +8,13 @@ export default function HeroSection() {
       className="relative h-screen flex flex-col justify-center items-center overflow-hidden"
       id="hero"
     >
-      {/* Background Soft Gradients */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div 
-          className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full opacity-30 blur-[120px]"
-          style={{ background: "#7C3AED" }} 
-        />
-        <div 
-          className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full opacity-10 blur-[140px]"
-          style={{ background: "#F59E0B" }} 
-        />
+      {/* Background Image with Frosted Glass Overlay */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+      >
+        {/* White frosted glass overlay so the dark text remains perfectly readable */}
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-[4px]" />
       </div>
 
       <div className="relative z-10 text-center px-6 mt-16 max-w-5xl mx-auto">
@@ -27,10 +24,10 @@ export default function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center"
         >
-          <span className="bg-[#7C3AED]/10 text-[#7C3AED] px-4 py-2 rounded-full text-sm md:text-base font-bold mb-6 tracking-wide uppercase">
+          <span className="bg-[#7C3AED]/15 text-[#7C3AED] px-4 py-2 rounded-full text-sm md:text-base font-bold mb-6 tracking-wide uppercase shadow-sm border border-[#7C3AED]/20">
             DRYWALL &
           </span>
-          <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-extrabold text-gray-900 tracking-tight leading-tight">
+          <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-extrabold text-gray-900 tracking-tight leading-tight drop-shadow-sm">
             General Contractor
           </h1>
         </motion.div>
@@ -62,7 +59,7 @@ export default function HeroSection() {
       </div>
 
       {/* Noise overlay for texture */}
-      <div className="absolute inset-0 noise-overlay pointer-events-none opacity-40 z-20" />
+      <div className="absolute inset-0 noise-overlay pointer-events-none opacity-20 z-20" />
     </section>
   );
 }
