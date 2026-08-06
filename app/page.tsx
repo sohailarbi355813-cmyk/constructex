@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import BookingSection from "@/components/BookingSection";
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="relative min-h-screen overflow-x-hidden">
       <Navbar />
       <HeroSection />
+      <AboutSection />
       <ServicesSection />
       <ProjectsSection />
       <BookingSection />

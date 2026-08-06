@@ -16,7 +16,7 @@ export default function Navbar({ isStatic = false }: { isStatic?: boolean }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isStatic]);
 
-  const navLinks = ["Services", "Projects", "Contact"];
+  const navLinks = ["About", "Services", "Projects", "Contact"];
 
   return (
     <>
