@@ -36,7 +36,8 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.7, type: "spring", stiffness: 200, damping: 20 }}
           className="mt-12 flex justify-center"
         >
-          <motion.button
+          <motion.a
+            href="#contact"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             className="group flex items-center gap-0 rounded-full overflow-hidden font-heading font-semibold text-lg transition-shadow duration-300 bg-[#7C3AED] hover:bg-[#6D28D9] shadow-[0_10px_40px_rgba(124,58,237,0.3)] hover:shadow-[0_15px_50px_rgba(124,58,237,0.5)]"
@@ -51,7 +52,7 @@ export default function HeroSection() {
                 <path d="M5 12h14M12 5l7 7-7 7" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </span>
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
 

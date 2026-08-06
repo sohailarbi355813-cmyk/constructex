@@ -24,14 +24,21 @@ export default function BookingSection() {
             Let's discuss your next architectural project. We bring precision engineering and premium finishing to every interior.
           </p>
           
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <button className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#7C3AED] text-white font-bold text-lg hover:bg-[#6D28D9] transition-all shadow-[0_4px_14px_0_rgba(124,58,237,0.39)] hover:shadow-[0_6px_20px_rgba(124,58,237,0.23)] hover:-translate-y-1">
+          <form action="https://formsubmit.co/xgmskl@gmail.com" method="POST" className="flex flex-col gap-4 max-w-xl mx-auto">
+            <input type="hidden" name="_subject" value="New Estimate Request from Constructex" />
+            <input type="hidden" name="_captcha" value="false" />
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <input type="text" name="name" placeholder="Full Name" required className="px-6 py-4 rounded-xl border border-gray-200 bg-white/50 backdrop-blur-sm focus:outline-none focus:border-[#7C3AED] transition-all text-gray-900" />
+              <input type="email" name="email" placeholder="Email Address" required className="px-6 py-4 rounded-xl border border-gray-200 bg-white/50 backdrop-blur-sm focus:outline-none focus:border-[#7C3AED] transition-all text-gray-900" />
+            </div>
+            
+            <textarea name="message" placeholder="Tell us about your project..." rows={4} required className="px-6 py-4 rounded-xl border border-gray-200 bg-white/50 backdrop-blur-sm focus:outline-none focus:border-[#7C3AED] transition-all resize-none text-gray-900"></textarea>
+            
+            <button type="submit" className="w-full mt-2 px-8 py-4 rounded-full bg-[#7C3AED] text-white font-bold text-lg hover:bg-[#6D28D9] transition-all shadow-[0_4px_14px_0_rgba(124,58,237,0.39)] hover:shadow-[0_6px_20px_rgba(124,58,237,0.23)] hover:-translate-y-1">
               Request an Estimate
             </button>
-            <button className="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent border-2 border-[#7C3AED] text-[#7C3AED] font-bold text-lg hover:bg-[#7C3AED]/5 transition-all">
-              Call (555) 123-4567
-            </button>
-          </div>
+          </form>
         </motion.div>
       </div>
     </section>

@@ -56,9 +56,9 @@ export default function Navbar({ isStatic = false }: { isStatic?: boolean }) {
 
             {/* CTA / Menu */}
             <div className="flex items-center gap-4">
-              <button className="hidden md:block px-6 py-2.5 rounded-full bg-[#7C3AED] text-white text-sm font-bold hover:bg-[#6D28D9] transition-colors shadow-[0_4px_14px_0_rgba(124,58,237,0.39)] hover:shadow-[0_6px_20px_rgba(124,58,237,0.23)]">
+              <Link href="#contact" className="hidden md:block px-6 py-2.5 rounded-full bg-[#7C3AED] text-white text-sm font-bold hover:bg-[#6D28D9] transition-colors shadow-[0_4px_14px_0_rgba(124,58,237,0.39)] hover:shadow-[0_6px_20px_rgba(124,58,237,0.23)]">
                 Estimate
-              </button>
+              </Link>
               
               {/* Mobile Menu Toggle */}
               <button 
@@ -100,12 +100,13 @@ export default function Navbar({ isStatic = false }: { isStatic?: boolean }) {
                 </Link>
               ))}
               <hr className="border-luxury-border" />
-              <button 
+              <Link 
+                href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full px-6 py-4 rounded-full bg-[#7C3AED] text-white text-base font-bold hover:bg-[#6D28D9] transition-colors shadow-lg"
+                className="w-full text-center px-6 py-4 rounded-full bg-[#7C3AED] text-white text-base font-bold hover:bg-[#6D28D9] transition-colors shadow-lg"
               >
                 Get an Estimate
-              </button>
+              </Link>
             </div>
           </motion.div>
         )}
