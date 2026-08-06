@@ -5,25 +5,26 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import ConstructexLogo from "@/components/ConstructexLogo";
 
-export default function Navbar() {
+export default function Navbar({ isStatic = false }: { isStatic?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    if (isStatic) return;
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isStatic]);
 
   const navLinks = ["Services", "Projects", "Contact"];
 
   return (
     <>
       <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
+        initial={isStatic ? {} : { y: -100 }}
+        animate={isStatic ? {} : { y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`${isStatic ? 'absolute' : 'fixed'} top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled ? "py-4" : "py-6"
         }`}
       >
