@@ -18,33 +18,38 @@ export default function ProjectsSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, i) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="group cursor-pointer"
-            >
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-6 relative bg-white border border-luxury-border">
-                {/* Simulated Project Image using Gradient */}
-                <div 
-                  className="absolute inset-0 transition-transform duration-700 group-hover:scale-105 opacity-80"
-                  style={{
-                    background: `linear-gradient(135deg, #F5F5F0 0%, ${project.themeColor}30 100%)`
-                  }}
-                />
-                
-                {/* Tag */}
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-[#7C3AED]">
-                  {project.name}
+          {projects.map((project, i) => {
+            const bgImage = i === 0 
+              ? "/images/door-frame-repair.png" 
+              : i === 1 
+                ? "/images/hero_bg_desktop.jpeg" 
+                : "/images/living-room.jpg";
+
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="group cursor-pointer"
+              >
+                <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-6 relative bg-white border border-luxury-border shadow-md group-hover:shadow-xl transition-shadow duration-300">
+                  <div 
+                    className="absolute inset-0 transition-transform duration-700 group-hover:scale-105 bg-cover bg-center"
+                    style={{ backgroundImage: `url('${bgImage}')` }}
+                  />
+                  
+                  {/* Tag */}
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-[#7C3AED]">
+                    {project.name}
+                  </div>
                 </div>
-              </div>
-              <h3 className="text-2xl font-black text-luxury-white font-heading mb-2">{project.detailsSection.title}</h3>
-              <p className="text-sm text-luxury-paragraph line-clamp-2">{project.detailsSection.description}</p>
-            </motion.div>
-          ))}
+                <h3 className="text-2xl font-black text-luxury-white font-heading mb-2">{project.detailsSection.title}</h3>
+                <p className="text-sm text-luxury-paragraph line-clamp-2">{project.detailsSection.description}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
