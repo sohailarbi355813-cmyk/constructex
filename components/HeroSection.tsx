@@ -2,12 +2,6 @@
 
 import { motion } from "framer-motion";
 
-const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 50 },
-  animate: { opacity: 1, y: 0 },
-  transition: { type: "spring", stiffness: 120, damping: 20, mass: 1.2, delay },
-});
-
 export default function HeroSection() {
   return (
     <section
@@ -26,28 +20,19 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 text-center px-6 mt-16">
+      <div className="relative z-10 text-center px-6 mt-16 max-w-5xl mx-auto">
         <motion.div
-          className="flex flex-col items-center select-none font-heading w-full"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center"
         >
-          <motion.h1
-            {...fadeUp(0.1)}
-            className="text-[12vw] sm:text-6xl md:text-7xl lg:text-8xl font-black text-luxury-white tracking-tighter leading-none mb-2 text-center break-words w-full"
-          >
-            Dry wall &
-          </motion.h1>
-          <motion.h1
-            {...fadeUp(0.3)}
-            className="text-[12vw] sm:text-6xl md:text-7xl lg:text-8xl font-black text-luxury-white tracking-tighter leading-none text-center break-words w-full"
-          >
-            general contractor
-          </motion.h1>
-          <motion.p
-            {...fadeUp(0.5)}
-            className="mt-6 text-lg md:text-xl text-luxury-paragraph max-w-2xl mx-auto"
-          >
-            Premium craftsmanship and architectural perfection for modern interior environments.
-          </motion.p>
+          <span className="bg-[#7C3AED]/10 text-[#7C3AED] px-4 py-2 rounded-full text-sm md:text-base font-bold mb-6 tracking-wide uppercase">
+            DRYWALL &
+          </span>
+          <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-extrabold text-gray-900 tracking-tight leading-tight">
+            General Contractor
+          </h1>
         </motion.div>
 
         {/* CTA button */}

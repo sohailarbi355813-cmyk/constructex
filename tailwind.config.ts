@@ -24,9 +24,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        heading: ["var(--font-syne)", "sans-serif"],
-        cormorant: ["var(--font-cormorant)", "serif"],
+        sans: ["var(--font-jakarta)", "sans-serif"],
+        heading: ["var(--font-jakarta)", "sans-serif"],
+        cormorant: ["var(--font-jakarta)", "sans-serif"],
       },
       backgroundImage: {
         "brand-gradient": "linear-gradient(135deg, #000000 0%, #111111 100%)",
