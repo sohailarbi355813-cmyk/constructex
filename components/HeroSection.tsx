@@ -23,11 +23,8 @@ export default function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center"
         >
-          <span className="bg-[#7C3AED]/15 text-[#7C3AED] px-4 py-2 rounded-full text-sm md:text-base font-bold mb-6 tracking-wide uppercase shadow-sm border border-[#7C3AED]/20">
-            DRYWALL &
-          </span>
           <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-extrabold text-gray-900 tracking-tight leading-tight drop-shadow-sm">
-            General Contractor
+            Dry Wall<br />Experts
           </h1>
         </motion.div>
 
