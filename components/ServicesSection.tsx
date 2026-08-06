@@ -129,25 +129,25 @@ export default function ServicesSection() {
                 }}
                 className={`absolute w-[90%] max-w-[340px] h-[360px] p-8 rounded-3xl cursor-pointer border shadow-2xl transition-all duration-300 bg-cover bg-center overflow-hidden ${
                   active === i 
-                    ? "border-[#7C3AED]/50 shadow-[0_20px_50px_rgba(124,58,237,0.2)]" 
-                    : "border-gray-200"
+                    ? "border-[#7C3AED]/80 shadow-[0_20px_50px_rgba(124,58,237,0.4)]" 
+                    : "border-gray-800/50"
                 }`}
               >
-                {/* Frosted Glass Overlay to ensure text readability over the image */}
-                <div className={`absolute inset-0 transition-opacity duration-300 ${active === i ? "bg-white/80" : "bg-white/95"}`} />
+                {/* Dark Overlay to ensure images POP while keeping text readable */}
+                <div className={`absolute inset-0 transition-opacity duration-300 ${active === i ? "bg-black/40" : "bg-black/60"}`} />
 
                 <div className="relative z-10 h-full flex flex-col">
                   <div 
                     className={`w-12 h-12 rounded-full mb-8 flex items-center justify-center transition-colors duration-300 ${
-                      active === i || active === null && i === 1 ? "bg-[#7C3AED] text-white" : "bg-gray-100 text-gray-400"
+                      active === i || active === null && i === 1 ? "bg-[#7C3AED] text-white" : "bg-white/20 text-white backdrop-blur-sm"
                     }`}
                   >
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 tracking-tight leading-snug">{project.detailsSection.title}</h3>
-                  <p className="text-sm text-gray-600 line-clamp-4 leading-relaxed font-medium">{project.detailsSection.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-4 tracking-tight leading-snug drop-shadow-md">{project.detailsSection.title}</h3>
+                  <p className="text-sm text-gray-200 line-clamp-4 leading-relaxed font-medium drop-shadow-sm">{project.detailsSection.description}</p>
                 </div>
               </motion.div>
             );
