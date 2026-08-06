@@ -1,11 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
 
 export default function ServicesSection() {
   const [active, setActive] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Animation variants for the scatter effect
   const cardVariants = {
@@ -17,21 +25,35 @@ export default function ServicesSection() {
       scale: 0.9
     },
     visible: (i: number) => {
-      // Calculate final positions based on index
       let x = 0;
+      let y = 0;
       let rotate = 0;
       let scale = 1;
-      let y = 0;
 
-      if (i === 0) {
-        x = -380;
-        rotate = -5;
-      } else if (i === 1) {
-        y = -20;
-        scale = 1.05;
-      } else if (i === 2) {
-        x = 380;
-        rotate = 5;
+      if (isMobile) {
+        // Vertical scatter for mobile phones
+        if (i === 0) {
+          y = -400; // Move up
+          rotate = -3;
+        } else if (i === 1) {
+          y = 0; // Stay center
+          scale = 1.05;
+        } else if (i === 2) {
+          y = 400; // Move down
+          rotate = 3;
+        }
+      } else {
+        // Horizontal scatter for desktop/tablets
+        if (i === 0) {
+          x = -380;
+          rotate = -5;
+        } else if (i === 1) {
+          y = -20;
+          scale = 1.05;
+        } else if (i === 2) {
+          x = 380;
+          rotate = 5;
+        }
       }
 
       return {
@@ -50,7 +72,9 @@ export default function ServicesSection() {
     },
     hover: (i: number) => ({
       scale: i === 1 ? 1.08 : 1.03,
-      y: i === 1 ? -30 : -10,
+      y: isMobile 
+        ? (i === 0 ? -410 : i === 1 ? -10 : 390) 
+        : (i === 1 ? -30 : -10),
       rotate: 0,
       zIndex: 50,
       transition: { type: "spring", stiffness: 300, damping: 20 }
@@ -68,14 +92,15 @@ export default function ServicesSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-24 z-50"
+          className="text-center mb-24 md:mb-32 z-50"
         >
           <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Our Expertise</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">Specialized architectural solutions and premium finishing.</p>
+          <p className="text-gray-500 max-w-2xl mx-auto px-6">Specialized architectural solutions and premium finishing.</p>
         </motion.div>
 
         {/* The Card Deck Container */}
-        <div className="relative w-full max-w-7xl mx-auto h-[400px] flex items-center justify-center">
+        {/* On mobile, we need a massive height so the vertical cards don't clip. On desktop, 400px is enough for horizontal spreading. */}
+        <div className="relative w-full max-w-7xl mx-auto h-[1200px] md:h-[400px] flex items-center justify-center">
           
           {projects.slice(0, 3).map((project, i) => {
             // Initial z-index logic: middle card is on top initially
@@ -93,7 +118,7 @@ export default function ServicesSection() {
                 onMouseEnter={() => setActive(i)}
                 onMouseLeave={() => setActive(null)}
                 style={{ zIndex: active === i ? 50 : initialZIndex }}
-                className={`absolute w-[340px] h-[380px] p-8 rounded-3xl cursor-pointer border shadow-2xl transition-colors duration-300 ${
+                className={`absolute w-[90%] max-w-[340px] h-[360px] p-8 rounded-3xl cursor-pointer border shadow-2xl transition-colors duration-300 ${
                   active === i 
                     ? "bg-[#7C3AED]/5 border-[#7C3AED]/30" 
                     : "bg-white border-gray-100"
