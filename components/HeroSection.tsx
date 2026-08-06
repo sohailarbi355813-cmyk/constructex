@@ -10,8 +10,7 @@ export default function HeroSection() {
     >
       {/* Background Image with Frosted Glass Overlay */}
       <div 
-        className="absolute inset-0 pointer-events-none z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+        className="absolute inset-0 pointer-events-none z-0 bg-cover bg-center bg-no-repeat bg-[url('/images/hero_bg_mobile.jpeg')] md:bg-[url('/images/hero_bg_desktop.jpeg')]"
       >
         {/* White frosted glass overlay so the dark text remains perfectly readable */}
         <div className="absolute inset-0 bg-white/70 backdrop-blur-[4px]" />
